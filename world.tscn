@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bwvxph837x6em"]
+[gd_scene load_steps=40 format=3 uid="uid://bwvxph837x6em"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_44q50"]
 [ext_resource type="Script" path="res://addons/character-controller/example/main/player.gd" id="2_swphh"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://addons/character-controller/fps/head_movement_3d.gd" id="10_oy3yv"]
 [ext_resource type="Script" path="res://addons/character-controller/fps/bob/head_bob.gd" id="11_1q5rv"]
 [ext_resource type="Curve" path="res://addons/character-controller/fps/bob/bob_curve.tres" id="12_yx1o6"]
+[ext_resource type="Script" path="res://slider.gd" id="13_y7r55"]
 [ext_resource type="PackedScene" uid="uid://crc4crbu2a7d8" path="res://addons/character-controller/example/main/audios/player_audios.tscn" id="16_66qm4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gge0"]
@@ -51,30 +52,48 @@ material = SubResource("StandardMaterial3D_wvov7")
 size = Vector3(0.5, 0.09, 0.1)
 
 [sub_resource type="TextMesh" id="TextMesh_myarf"]
-text = "Field of View
+text = "Pole widzenia
 "
+horizontal_alignment = 0
+pixel_size = 0.003
+depth = 0.01
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p6m7y"]
+size = Vector3(0.12, 0.07, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xts4f"]
+size = Vector3(0.12, 0.03, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n465g"]
+albedo_color = Color(0, 0.121111, 0.11599, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c5pmp"]
+material = SubResource("StandardMaterial3D_n465g")
+size = Vector3(0.01, 0.03, 0.04)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epo7r"]
+albedo_color = Color(0.1674, 0.286233, 0.31, 1)
+metallic_specular = 1.0
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_nr23w"]
+material = SubResource("StandardMaterial3D_epo7r")
+size = Vector3(0.5, 0.09, 0.1)
+
+[sub_resource type="TextMesh" id="TextMesh_d1ly1"]
+text = "Pauzomenunator"
+uppercase = true
+pixel_size = 0.003
+depth = 0.01
+
+[sub_resource type="TextMesh" id="TextMesh_yvmdg"]
+text = "Cienie"
 horizontal_alignment = 0
 pixel_size = 0.003
 depth = 0.01
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lpd0n"]
 radius = 0.04
-
-[sub_resource type="BoxMesh" id="BoxMesh_xts4f"]
-size = Vector3(0.12, 0.03, 0.02)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n465g"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_c5pmp"]
-material = SubResource("StandardMaterial3D_n465g")
-size = Vector3(0.03, 0.03, 0.021)
-
-[sub_resource type="TextMesh" id="TextMesh_yvmdg"]
-text = "Shadows"
-horizontal_alignment = 0
-pixel_size = 0.003
-depth = 0.01
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cvqb"]
 albedo_color = Color(0, 1, 0, 1)
@@ -179,7 +198,7 @@ transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
 [node name="PauseMenu" type="Node3D" parent="Player/Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.75)
 script = SubResource("GDScript_mqvs3")
 
 [node name="Module_FOV" type="Node3D" parent="Player/Head/PauseMenu"]
@@ -195,21 +214,33 @@ mesh = SubResource("TextMesh_myarf")
 skeleton = NodePath("../..")
 
 [node name="Slider" type="Area3D" parent="Player/Head/PauseMenu/Module_FOV"]
-script = ExtResource("4_oh5en")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+script = ExtResource("13_y7r55")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Head/PauseMenu/Module_FOV/Slider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
-shape = SubResource("SphereShape3D_lpd0n")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06, 0, 0)
+shape = SubResource("BoxShape3D_p6m7y")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Player/Head/PauseMenu/Module_FOV/Slider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06, 0, 0)
 mesh = SubResource("BoxMesh_xts4f")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Player/Head/PauseMenu/Module_FOV/Slider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0, 0)
+[node name="Handle" type="MeshInstance3D" parent="Player/Head/PauseMenu/Module_FOV/Slider"]
 mesh = SubResource("BoxMesh_c5pmp")
 skeleton = NodePath("")
+
+[node name="Module_Header" type="Node3D" parent="Player/Head/PauseMenu"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="Chasis" type="MeshInstance3D" parent="Player/Head/PauseMenu/Module_Header"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+mesh = SubResource("BoxMesh_nr23w")
+skeleton = NodePath("")
+
+[node name="Label" type="MeshInstance3D" parent="Player/Head/PauseMenu/Module_Header"]
+mesh = SubResource("TextMesh_d1ly1")
+skeleton = NodePath("../..")
 
 [node name="Module_Shadows" type="Node3D" parent="Player/Head/PauseMenu"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
