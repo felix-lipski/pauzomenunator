@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bwvxph837x6em"]
+[gd_scene load_steps=41 format=3 uid="uid://bwvxph837x6em"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_44q50"]
 [ext_resource type="Script" path="res://addons/character-controller/example/main/player.gd" id="2_swphh"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://addons/character-controller/fps/bob/head_bob.gd" id="11_1q5rv"]
 [ext_resource type="Curve" path="res://addons/character-controller/fps/bob/bob_curve.tres" id="12_yx1o6"]
 [ext_resource type="Script" path="res://slider.gd" id="13_y7r55"]
+[ext_resource type="EventAsset" uid="uid://cxn6v2tpv3374" path="res://addons/FMOD/editor/resources/events/{6395c575-a65c-4283-908a-add31b1fb409}.tres" id="15_iq1gk"]
 [ext_resource type="PackedScene" uid="uid://crc4crbu2a7d8" path="res://addons/character-controller/example/main/audios/player_audios.tscn" id="16_66qm4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gge0"]
@@ -257,6 +258,7 @@ skeleton = NodePath("../..")
 
 [node name="Button" type="Area3D" parent="Player/Head/PauseMenu/Module_Shadows"]
 script = ExtResource("4_oh5en")
+buttonsound = ExtResource("15_iq1gk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Head/PauseMenu/Module_Shadows/Button"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
