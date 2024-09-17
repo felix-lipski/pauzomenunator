@@ -1,6 +1,5 @@
 extends Area3D
 
-var toggled = true
 
 func apply_value(delta: float):
 	print("apply_value default", delta)
