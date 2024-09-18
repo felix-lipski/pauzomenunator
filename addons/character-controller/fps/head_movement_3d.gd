@@ -15,6 +15,7 @@ var actual_rotation := Vector3()
 
 func _ready() -> void:
 	actual_rotation.y = get_owner().rotation.y
+	actual_rotation.x = rotation.x
 
 
 ## Define mouse sensitivity
@@ -32,12 +33,8 @@ func set_vertical_angle_limit(limit : float):
 ## [FPSController3D].
 ## Vector2 is sent with reference to the input of a mouse as an example
 func rotate_camera(mouse_axis : Vector2) -> void:
-	# Horizontal mouse look.
-	#print(mouse_sensitivity)
 	if true:
 		actual_rotation.y -= mouse_axis.x * (mouse_sensitivity/1000)
-		#actual_rotation.y -= mouse_axis.x * (mouse_sensitivity/1000)
-		# Vertical mouse look.
 		actual_rotation.x = clamp(actual_rotation.x - mouse_axis.y * (mouse_sensitivity/1000), -vertical_angle_limit, vertical_angle_limit)
 	
 		get_parent().rotation.y = actual_rotation.y
