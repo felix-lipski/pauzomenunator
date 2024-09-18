@@ -1,0 +1,10 @@
+[gd_resource type="BoxMesh" load_steps=2 format=3 uid="uid://qmlyldwye6wf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wvov7"]
+albedo_color = Color(0, 0.38001, 0.632876, 1)
+metallic_specular = 1.0
+roughness = 0.0
+
+[resource]
+material = SubResource("StandardMaterial3D_wvov7")
+size = Vector3(0.5, 0.09, 0.1)
