@@ -37,3 +37,7 @@ shape = SubResource("BoxShape3D_il5oh")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dpw8f")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.614506, -0.564744, 0.55086, 0, 0.698253, 0.715851, -0.788913, -0.439895, 0.42908, 0, 4, 0)
+shadow_enabled = true
