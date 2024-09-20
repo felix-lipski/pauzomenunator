@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://clf7x778j2mmn"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/SFX/CHEST/SFX_chest_number_select"
+guid = "{e509db4e-0462-4c91-88c1-c922e5ac8702}"
+name = "SFX_chest_number_select"

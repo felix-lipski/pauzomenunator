@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://cbyo6lfknyrd5"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/SFX/MODULE/SFX_module_collect"
+guid = "{1a03b03d-5629-46d0-8a42-3432b7751646}"
+name = "SFX_module_collect"

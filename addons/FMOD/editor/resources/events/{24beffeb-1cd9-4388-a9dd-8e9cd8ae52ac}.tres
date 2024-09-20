@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://c538t7on5a3ua"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/UI/MODULE/KEY SELECT/UI_module_key_selected"
+guid = "{24beffeb-1cd9-4388-a9dd-8e9cd8ae52ac}"
+name = "UI_module_key_selected"

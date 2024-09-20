@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1ia2m7q82r5p"]
+[gd_scene load_steps=12 format=3 uid="uid://b1ia2m7q82r5p"]
 
 [ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="1_ttlag"]
 [ext_resource type="Script" path="res://fov_slider.gd" id="2_kghdc"]
 [ext_resource type="PackedScene" uid="uid://c53rqq31kwjdf" path="res://models/Pauza/Tekstury Przycisk/Sufak.fbx" id="3_8jvhv"]
+[ext_resource type="EventAsset" uid="uid://cde7u2t051diq" path="res://addons/FMOD/editor/resources/events/{4a85fff1-6426-4126-8d26-88d03de8ce45}.tres" id="3_xnexr"]
 [ext_resource type="PackedScene" uid="uid://bqvxnevna4iwq" path="res://models/Pauza/Panel_2/Panel_2.fbx" id="4_7tjoa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xaofj"]
@@ -45,6 +46,7 @@ skeleton = NodePath("../../..")
 [node name="Slider" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00425155, 0.0472608, 0.00906628)
 script = ExtResource("2_kghdc")
+fov = ExtResource("3_xnexr")
 
 [node name="Shape" type="CollisionShape3D" parent="Slider"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0.075, 0, 0)
