@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://lhtrts4w5uam"]
+
+[ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="1_iul82"]
+[ext_resource type="Script" path="res://button.gd" id="2_6trpm"]
+[ext_resource type="PackedScene" uid="uid://bhpo7uwxm015" path="res://button_binary.tscn" id="3_u23vm"]
+[ext_resource type="PackedScene" uid="uid://c456tiy7lffl7" path="res://models/Pauza/Panel_3/Panel_3.fbx" id="4_66lfu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfw7i"]
+albedo_color = Color(0.396889, 0.396889, 0.396889, 1)
+metallic = 1.0
+
+[sub_resource type="TextMesh" id="TextMesh_yvmdg"]
+material = SubResource("StandardMaterial3D_qfw7i")
+text = "Shadows"
+horizontal_alignment = 0
+pixel_size = 0.0012
+depth = 0.01
+
+[sub_resource type="EventAsset" id="EventAsset_03gid"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/SFX/UI/Clicks/knob"
+guid = "{6395c575-a65c-4283-908a-add31b1fb409}"
+name = "knob"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w661h"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hapj0"]
+material = SubResource("StandardMaterial3D_w661h")
+size = Vector3(0.03, 0.03, 0.03)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lakiq"]
+size = Vector3(0.03, 0.03, 0.03)
+
+[node name="Shadows" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="Chasis" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+visible = false
+mesh = ExtResource("1_iul82")
+skeleton = NodePath("")
+
+[node name="Label" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133464, 0.0450001, 1.19209e-07)
+mesh = SubResource("TextMesh_yvmdg")
+skeleton = NodePath("../../..")
+
+[node name="Button" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.065, 0.038, 0)
+script = ExtResource("2_6trpm")
+buttonsound = SubResource("EventAsset_03gid")
+
+[node name="Model" type="MeshInstance3D" parent="Button"]
+visible = false
+mesh = SubResource("BoxMesh_hapj0")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button"]
+shape = SubResource("BoxShape3D_lakiq")
+
+[node name="ButtonBinary" parent="Button" instance=ExtResource("3_u23vm")]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0.00125623, 0, 0)
+
+[node name="Panel_3" parent="." instance=ExtResource("4_66lfu")]
