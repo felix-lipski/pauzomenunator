@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6qf4ccnbst7s"]
+
+[ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="1_75e7q"]
+[ext_resource type="Script" path="res://level_button.gd" id="2_bpdvc"]
+
+[sub_resource type="TextMesh" id="TextMesh_6srfu"]
+text = "Level Select"
+horizontal_alignment = 0
+pixel_size = 0.003
+depth = 0.01
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lakiq"]
+size = Vector3(0.03, 0.03, 0.03)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rt8jq"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vavrf"]
+material = SubResource("StandardMaterial3D_rt8jq")
+size = Vector3(0.03, 0.03, 0.03)
+
+[node name="Level" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+
+[node name="Chasis" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+mesh = ExtResource("1_75e7q")
+skeleton = NodePath("")
+
+[node name="Label" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23, 0, 0)
+mesh = SubResource("TextMesh_6srfu")
+skeleton = NodePath("../../..")
+
+[node name="LevelButton" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19979, 0, 0)
+script = ExtResource("2_bpdvc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelButton"]
+shape = SubResource("BoxShape3D_lakiq")
+
+[node name="Model" type="MeshInstance3D" parent="LevelButton"]
+mesh = SubResource("BoxMesh_vavrf")
+skeleton = NodePath("")

@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://c46v6gvwxgsp3"]
+
+[ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="1_ggmjt"]
+[ext_resource type="PackedScene" uid="uid://bqvxnevna4iwq" path="res://models/Pauza/Panel_2/Panel_2.fbx" id="2_0883s"]
+[ext_resource type="Script" path="res://slider_sensitivity.gd" id="3_nent1"]
+[ext_resource type="PackedScene" uid="uid://c53rqq31kwjdf" path="res://models/Pauza/Tekstury Przycisk/Sufak.fbx" id="4_6pftt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xaofj"]
+albedo_color = Color(0.396889, 0.396889, 0.396889, 1)
+metallic = 1.0
+
+[sub_resource type="TextMesh" id="TextMesh_yhx8s"]
+material = SubResource("StandardMaterial3D_xaofj")
+text = "Sensitivity"
+horizontal_alignment = 0
+pixel_size = 0.0012
+depth = 0.01
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p6m7y"]
+size = Vector3(0.15, 0.07, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xts4f"]
+size = Vector3(0.12, 0.03, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcyxp"]
+albedo_color = Color(0, 0.121111, 0.11599, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c5pmp"]
+material = SubResource("StandardMaterial3D_qcyxp")
+size = Vector3(0.01, 0.03, 0.04)
+
+[node name="Sensitivity" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="Chasis" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+visible = false
+mesh = ExtResource("1_ggmjt")
+skeleton = NodePath("")
+
+[node name="Label" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.136, 0.046, 0)
+mesh = SubResource("TextMesh_yhx8s")
+skeleton = NodePath("../../..")
+
+[node name="Panel_2" parent="." instance=ExtResource("2_0883s")]
+
+[node name="Slider" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00425155, 0.0472608, 0.00906628)
+script = ExtResource("3_nent1")
+
+[node name="Shape" type="CollisionShape3D" parent="Slider"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0.075, 0, 0)
+shape = SubResource("BoxShape3D_p6m7y")
+
+[node name="Pad" type="MeshInstance3D" parent="Slider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_xts4f")
+skeleton = NodePath("")
+
+[node name="Handle" parent="Slider" instance=ExtResource("4_6pftt")]
+
+[node name="Handle1" type="MeshInstance3D" parent="Slider"]
+visible = false
+mesh = SubResource("BoxMesh_c5pmp")
+skeleton = NodePath("")
