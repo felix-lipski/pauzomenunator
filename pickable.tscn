@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdgbvgelsw5nb"]
+
+[ext_resource type="Script" path="res://pickable.gd" id="1_cojf6"]
+[ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="2_nd3ib"]
+[ext_resource type="PackedScene" uid="uid://cd0rjjciaxf67" path="res://models/Pauza/Panel_5/Panel_5.fbx" id="3_0t2n8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ods8s"]
+size = Vector3(0.611389, 0.125935, 0.149512)
+
+[node name="Module" type="Area3D"]
+script = ExtResource("1_cojf6")
+
+[node name="Chasis" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("2_nd3ib")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0140686, 0.0639441, -0.0247559)
+shape = SubResource("BoxShape3D_ods8s")
+
+[node name="Panel_5" parent="." instance=ExtResource("3_0t2n8")]
+transform = Transform3D(-1.5, 2.26494e-07, -9.90035e-15, 0, -6.55671e-08, -1.5, -2.26494e-07, -1.5, 6.55671e-08, 0, 0.0122459, 0.042909)
