@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://ca7xo151vkhx8"]
+[gd_scene load_steps=17 format=3 uid="uid://ca7xo151vkhx8"]
 
 [ext_resource type="Script" path="res://chest.gd" id="1_nyvm3"]
 [ext_resource type="PackedScene" uid="uid://d3sxfjl4xt6jg" path="res://models/Pauza/Chest/Chest.fbx" id="1_t4agt"]
 [ext_resource type="PackedScene" uid="uid://b5lw4ixeu4djw" path="res://models/Pauza/Chest/Top.fbx" id="2_3vfi2"]
+[ext_resource type="EventAsset" uid="uid://dsbxsjaf0o47v" path="res://addons/FMOD/editor/resources/events/{47291653-3b3c-44a7-b12e-eda45c033768}.tres" id="2_pfhgl"]
 [ext_resource type="Script" path="res://password_number.gd" id="3_sp1rp"]
 [ext_resource type="EventAsset" uid="uid://clf7x778j2mmn" path="res://addons/FMOD/editor/resources/events/{e509db4e-0462-4c91-88c1-c922e5ac8702}.tres" id="5_t0jjs"]
 
@@ -43,6 +44,7 @@ size = Vector3(0.08, 0.1, 0.02)
 [node name="Chest" type="Node3D"]
 script = ExtResource("1_nyvm3")
 password = [2, 1, 3]
+chest_unlocked = ExtResource("2_pfhgl")
 
 [node name="Lid" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.517522, -0.333802)

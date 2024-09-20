@@ -1,7 +1,10 @@
 extends Node3D
 @export var ui_menu_open: EventAsset
 @export var ui_menu_close: EventAsset
-
+@export var ambience_lvl_1: EventAsset
+var instance_lvl_1: EventInstance
+@export var ambience_lvl_2: EventAsset
+var instance_lvl_2: EventInstance
 #var level = "level1"
 var level = 1
 
@@ -9,6 +12,13 @@ var levels = [null, null, null]
 var postions = [null, Vector3(), Vector3()]
 
 func switch_level(new_level: int):
+	if new_level ==1:
+		instance_lvl_2.stop(FMODStudioModule.FMOD_STUDIO_STOP_ALLOWFADEOUT)
+		instance_lvl_1.start()
+	else:
+		instance_lvl_1.stop(FMODStudioModule.FMOD_STUDIO_STOP_ALLOWFADEOUT)
+		instance_lvl_2.start()
+	
 	var player = $World/Player
 	postions[level] = player.position
 
@@ -41,7 +51,9 @@ var paused = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	instance_lvl_1 = FMODRuntime.create_instance(ambience_lvl_1)
+	instance_lvl_2 = FMODRuntime.create_instance(ambience_lvl_2)
+	instance_lvl_1.start()
 	$World/Player/Head/PauseMenu.hide()
 	#pass # Replace with function body.
 	

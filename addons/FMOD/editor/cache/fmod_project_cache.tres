@@ -1,10 +1,11 @@
-[gd_resource type="ProjectCache" load_steps=17 format=3 uid="uid://b6ri0nnbd018v"]
+[gd_resource type="ProjectCache" load_steps=18 format=3 uid="uid://b6ri0nnbd018v"]
 
 [ext_resource type="BankAsset" uid="uid://bsxmyoo4tyseu" path="res://addons/FMOD/editor/resources/banks/{2e3c3481-2a65-4b32-8ed1-9462b3dbbd0b}.tres" id="1_nm6xc"]
 [ext_resource type="BankAsset" uid="uid://de8hfphnvcctn" path="res://addons/FMOD/editor/resources/banks/{b6211455-5b1e-0770-0898-1e9c4228bb93}.tres" id="2_oncb7"]
 [ext_resource type="BusAsset" uid="uid://dqy5kioqwqwln" path="res://addons/FMOD/editor/resources/busses/{345f1e81-7834-44d0-88e1-398404cd4b4c}.tres" id="3_wyfho"]
 [ext_resource type="BusAsset" uid="uid://ye5lsfk22nhd" path="res://addons/FMOD/editor/resources/busses/{24814bac-725f-444b-b2cd-31d627882aeb}.tres" id="4_xva25"]
 [ext_resource type="EventAsset" uid="uid://b7woa73e8uj28" path="res://addons/FMOD/editor/resources/events/{d1b24baf-17f3-4225-a715-da42e8bef424}.tres" id="5_tgc2e"]
+[ext_resource type="EventAsset" uid="uid://codwrjh7x17iy" path="res://addons/FMOD/editor/resources/events/{8635a516-9f84-4641-a613-40391282e316}.tres" id="6_bdquh"]
 [ext_resource type="EventAsset" uid="uid://llyn1ysis4y2" path="res://addons/FMOD/editor/resources/events/{ee7b76dc-02bc-4c0b-8f31-b7a10233f679}.tres" id="6_cto2q"]
 [ext_resource type="EventAsset" uid="uid://clf7x778j2mmn" path="res://addons/FMOD/editor/resources/events/{e509db4e-0462-4c91-88c1-c922e5ac8702}.tres" id="7_q62em"]
 [ext_resource type="EventAsset" uid="uid://dsbxsjaf0o47v" path="res://addons/FMOD/editor/resources/events/{47291653-3b3c-44a7-b12e-eda45c033768}.tres" id="8_ls1hb"]
@@ -31,6 +32,7 @@ events = {
 "{47291653-3b3c-44a7-b12e-eda45c033768}": ExtResource("8_ls1hb"),
 "{4a85fff1-6426-4126-8d26-88d03de8ce45}": ExtResource("15_ch88h"),
 "{648a4af2-9c79-476c-a64c-03bf4e3b80b7}": ExtResource("12_ud63i"),
+"{8635a516-9f84-4641-a613-40391282e316}": ExtResource("6_bdquh"),
 "{a089bb2a-c113-4eeb-9ac9-fee48fddf67a}": ExtResource("13_5yxqi"),
 "{d1b24baf-17f3-4225-a715-da42e8bef424}": ExtResource("5_tgc2e"),
 "{e509db4e-0462-4c91-88c1-c922e5ac8702}": ExtResource("7_q62em"),
@@ -60,6 +62,12 @@ event_tree = [{
 "node_name": "Ambience - Level 1",
 "path": "event:/Ambience/Ambience - Level 1",
 "resource": ExtResource("5_tgc2e")
+}, {
+"children": [],
+"item_type": 1,
+"node_name": "Ambience - Level 2",
+"path": "event:/Ambience/Ambience - Level 2",
+"resource": ExtResource("6_bdquh")
 }],
 "item_type": 7,
 "node_name": "Ambience",
