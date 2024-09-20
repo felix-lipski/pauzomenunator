@@ -1,8 +1,6 @@
-[gd_scene load_steps=83 format=3 uid="uid://bwvxph837x6em"]
+[gd_scene load_steps=41 format=3 uid="uid://bwvxph837x6em"]
 
 [ext_resource type="Script" path="res://level1.gd" id="1_4dvhk"]
-[ext_resource type="Script" path="res://pickable.gd" id="2_2xa5e"]
-[ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="3_wkj5q"]
 [ext_resource type="Script" path="res://addons/character-controller/example/main/player.gd" id="4_4l76r"]
 [ext_resource type="Environment" uid="uid://b3cn01u84faiy" path="res://addons/character-controller/example/main/underwater.tres" id="5_qo3ji"]
 [ext_resource type="Script" path="res://addons/character-controller/abilities/walk_ability_3d.gd" id="6_6on16"]
@@ -12,182 +10,20 @@
 [ext_resource type="Script" path="res://addons/character-controller/abilities/fly_ability_3d.gd" id="10_0seqs"]
 [ext_resource type="Script" path="res://addons/character-controller/abilities/swim_ability_3d.gd" id="11_u3voq"]
 [ext_resource type="Script" path="res://addons/character-controller/fps/head_movement_3d.gd" id="12_i180w"]
+[ext_resource type="PackedScene" uid="uid://dlnknjjr20uk2" path="res://modules/scroll.tscn" id="13_2r6yg"]
 [ext_resource type="Script" path="res://addons/character-controller/fps/bob/head_bob.gd" id="13_7k471"]
 [ext_resource type="Curve" path="res://addons/character-controller/fps/bob/bob_curve.tres" id="14_ouqm6"]
-[ext_resource type="Script" path="res://scroll.gd" id="15_3txta"]
+[ext_resource type="PackedScene" uid="uid://c6qf4ccnbst7s" path="res://modules/level.tscn" id="16_fytw8"]
 [ext_resource type="Script" path="res://modules.gd" id="16_yhpx2"]
-[ext_resource type="Script" path="res://fov_slider.gd" id="17_7krbs"]
-[ext_resource type="PackedScene" uid="uid://bqvxnevna4iwq" path="res://models/Pauza/Panel_2/Panel_2.fbx" id="17_l54qq"]
-[ext_resource type="PackedScene" uid="uid://c53rqq31kwjdf" path="res://models/Pauza/Tekstury Przycisk/Sufak.fbx" id="17_uammv"]
-[ext_resource type="Script" path="res://slider_sensitivity.gd" id="18_jvph2"]
-[ext_resource type="Script" path="res://button.gd" id="19_millw"]
-[ext_resource type="Script" path="res://key_input_group.gd" id="20_7dc4m"]
-[ext_resource type="PackedScene" uid="uid://c456tiy7lffl7" path="res://models/Pauza/Panel_3/Panel_3.fbx" id="20_p0orp"]
-[ext_resource type="PackedScene" uid="uid://bhpo7uwxm015" path="res://button_binary.tscn" id="21_ccf1k"]
-[ext_resource type="Script" path="res://reset_key.gd" id="21_trke2"]
-[ext_resource type="EventAsset" uid="uid://ccnoln6ybukq7" path="res://addons/FMOD/editor/resources/events/{6395c575-a65c-4283-908a-add31b1fb409}.tres" id="22_8nsr5"]
-[ext_resource type="Script" path="res://input_key.gd" id="23_codhy"]
+[ext_resource type="PackedScene" uid="uid://b1ia2m7q82r5p" path="res://modules/fov.tscn" id="17_lcos1"]
+[ext_resource type="PackedScene" uid="uid://c46v6gvwxgsp3" path="res://modules/sensitivity.tscn" id="18_ap3io"]
+[ext_resource type="PackedScene" uid="uid://lhtrts4w5uam" path="res://modules/shadows.tscn" id="19_wjcmb"]
 [ext_resource type="PackedScene" uid="uid://crc4crbu2a7d8" path="res://addons/character-controller/example/main/audios/player_audios.tscn" id="24_2lgak"]
-[ext_resource type="Script" path="res://level_button.gd" id="24_khqln"]
+[ext_resource type="PackedScene" uid="uid://bk4kojpks7tgl" path="res://modules/key_input_module.tscn" id="27_d4r4f"]
 [ext_resource type="PackedScene" uid="uid://ca7xo151vkhx8" path="res://chest.tscn" id="30_cyue7"]
+[ext_resource type="PackedScene" uid="uid://bdgbvgelsw5nb" path="res://pickable.tscn" id="30_sjjww"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jcbg5"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ih24"]
-albedo_color = Color(0, 0.38001, 0.632876, 1)
-metallic_specular = 1.0
-roughness = 0.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_y7m33"]
-material = SubResource("StandardMaterial3D_5ih24")
-size = Vector3(0.14, 0.3, 0.1)
-
-[sub_resource type="SystemFont" id="SystemFont_5bt7r"]
-font_names = PackedStringArray("Terminus (TTF)")
-subpixel_positioning = 0
-
-[sub_resource type="TextMesh" id="TextMesh_ia46r"]
-text = "pauzo
-menus
-crolo
-nator"
-font = SubResource("SystemFont_5bt7r")
-uppercase = true
-line_spacing = -5.0
-pixel_size = 0.003
-depth = 0.01
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lakiq"]
-size = Vector3(0.03, 0.03, 0.03)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rt8jq"]
-albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_vavrf"]
-material = SubResource("StandardMaterial3D_rt8jq")
-size = Vector3(0.03, 0.03, 0.03)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xaofj"]
-albedo_color = Color(0.396889, 0.396889, 0.396889, 1)
-metallic = 1.0
-
-[sub_resource type="TextMesh" id="TextMesh_myarf"]
-material = SubResource("StandardMaterial3D_xaofj")
-text = "FOV"
-horizontal_alignment = 0
-pixel_size = 0.0013
-depth = 0.01
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_p6m7y"]
-size = Vector3(0.15, 0.07, 0.03)
-
-[sub_resource type="BoxMesh" id="BoxMesh_xts4f"]
-size = Vector3(0.12, 0.03, 0.02)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcyxp"]
-albedo_color = Color(0, 0.121111, 0.11599, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_c5pmp"]
-material = SubResource("StandardMaterial3D_qcyxp")
-size = Vector3(0.01, 0.03, 0.04)
-
-[sub_resource type="TextMesh" id="TextMesh_yhx8s"]
-material = SubResource("StandardMaterial3D_xaofj")
-text = "Sensitivity"
-horizontal_alignment = 0
-pixel_size = 0.0012
-depth = 0.01
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ab1j7"]
-albedo_color = Color(0.1674, 0.286233, 0.31, 1)
-metallic_specular = 1.0
-roughness = 0.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_nr23w"]
-material = SubResource("StandardMaterial3D_ab1j7")
-size = Vector3(0.5, 0.09, 0.1)
-
-[sub_resource type="TextMesh" id="TextMesh_d1ly1"]
-text = "Pauzomenunator"
-uppercase = true
-pixel_size = 0.003
-depth = 0.01
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfw7i"]
-albedo_color = Color(0.396889, 0.396889, 0.396889, 1)
-metallic = 1.0
-
-[sub_resource type="TextMesh" id="TextMesh_yvmdg"]
-material = SubResource("StandardMaterial3D_qfw7i")
-text = "Shadows"
-horizontal_alignment = 0
-pixel_size = 0.0012
-depth = 0.01
-
-[sub_resource type="EventAsset" id="EventAsset_03gid"]
-is_oneshot = true
-min_distance = 1.0
-max_distance = 20.0
-path = "event:/SFX/UI/Clicks/knob"
-guid = "{6395c575-a65c-4283-908a-add31b1fb409}"
-name = "knob"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w661h"]
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_hapj0"]
-material = SubResource("StandardMaterial3D_w661h")
-size = Vector3(0.03, 0.03, 0.03)
-
-[sub_resource type="TextMesh" id="TextMesh_ismqh"]
-text = "Move Right"
-horizontal_alignment = 0
-pixel_size = 0.003
-depth = 0.01
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3d08w"]
-size = Vector3(0.06, 0.04, 0.05)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nuxm7"]
-albedo_color = Color(1, 0.18, 0.18, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jpi4h"]
-material = SubResource("StandardMaterial3D_nuxm7")
-size = Vector3(0.06, 0.04, 0.03)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2t1vn"]
-size = Vector3(0.1, 0.04, 0.03)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1uqh"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_6qnse"]
-material = SubResource("StandardMaterial3D_n1uqh")
-size = Vector3(0.1, 0.04, 0.02)
-
-[sub_resource type="TextMesh" id="TextMesh_38beq"]
-text = "Move Left"
-horizontal_alignment = 0
-pixel_size = 0.003
-depth = 0.01
-
-[sub_resource type="TextMesh" id="TextMesh_jexcb"]
-text = "Move Forward"
-horizontal_alignment = 0
-pixel_size = 0.003
-depth = 0.01
-
-[sub_resource type="TextMesh" id="TextMesh_53nur"]
-text = "Move Backward"
-horizontal_alignment = 0
-pixel_size = 0.003
-depth = 0.01
-
-[sub_resource type="TextMesh" id="TextMesh_6srfu"]
-text = "Level Select"
-horizontal_alignment = 0
-pixel_size = 0.003
-depth = 0.01
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7vv43"]
 
@@ -242,15 +78,12 @@ material = SubResource("StandardMaterial3D_pwpxd")
 size = Vector3(4, 0.5, 4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gge0"]
-albedo_color = Color(0.518744, 0.323736, 0.214705, 1)
+albedo_color = Color(0.315658, 0.187152, 0.115011, 1)
 metallic_specular = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_vselk"]
 material = SubResource("StandardMaterial3D_2gge0")
 size = Vector3(2, 1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ods8s"]
-size = Vector3(0.5, 0.09, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aom5b"]
 size = Vector3(2, 1, 1)
@@ -327,412 +160,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 [node name="PauseMenu" type="Node3D" parent="Player/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.5)
 
-[node name="Scroll" type="Node3D" parent="Player/Head/PauseMenu"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.399861, 0, 0)
-
-[node name="Chasis" type="MeshInstance3D" parent="Player/Head/PauseMenu/Scroll"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-mesh = SubResource("BoxMesh_y7m33")
-skeleton = NodePath("")
-
-[node name="Label" type="MeshInstance3D" parent="Player/Head/PauseMenu/Scroll"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
-mesh = SubResource("TextMesh_ia46r")
-skeleton = NodePath("../..")
-
-[node name="Buttons" type="Node3D" parent="Player/Head/PauseMenu/Scroll"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07, 0)
-
-[node name="Down" type="Area3D" parent="Player/Head/PauseMenu/Scroll/Buttons"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, 0, 0)
-script = ExtResource("15_3txta")
-down = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Head/PauseMenu/Scroll/Buttons/Down"]
-shape = SubResource("BoxShape3D_lakiq")
-
-[node name="Model" type="MeshInstance3D" parent="Player/Head/PauseMenu/Scroll/Buttons/Down"]
-mesh = SubResource("BoxMesh_vavrf")
-skeleton = NodePath("")
-
-[node name="Up" type="Area3D" parent="Player/Head/PauseMenu/Scroll/Buttons"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, 0, 0)
-script = ExtResource("15_3txta")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Head/PauseMenu/Scroll/Buttons/Up"]
-shape = SubResource("BoxShape3D_lakiq")
-
-[node name="Model" type="MeshInstance3D" parent="Player/Head/PauseMenu/Scroll/Buttons/Up"]
-mesh = SubResource("BoxMesh_vavrf")
-skeleton = NodePath("")
+[node name="Scroll" parent="Player/Head/PauseMenu" instance=ExtResource("13_2r6yg")]
 
 [node name="Modules" type="Node3D" parent="Player/Head/PauseMenu"]
 script = ExtResource("16_yhpx2")
 
-[node name="FOV" type="Node3D" parent="Player/Head/PauseMenu/Modules"]
-
-[node name="Chasis" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/FOV"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-visible = false
-mesh = ExtResource("3_wkj5q")
-skeleton = NodePath("")
-
-[node name="Label" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/FOV"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107896, 0.0419998, 0)
-mesh = SubResource("TextMesh_myarf")
-skeleton = NodePath("../../..")
-
-[node name="Slider" type="Area3D" parent="Player/Head/PauseMenu/Modules/FOV"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00425155, 0.0472608, 0.00906628)
-script = ExtResource("17_7krbs")
-
-[node name="Shape" type="CollisionShape3D" parent="Player/Head/PauseMenu/Modules/FOV/Slider"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0.075, 0, 0)
-shape = SubResource("BoxShape3D_p6m7y")
-
-[node name="Pad" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/FOV/Slider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06, 0, 0)
-visible = false
-mesh = SubResource("BoxMesh_xts4f")
-skeleton = NodePath("")
-
-[node name="Handle" parent="Player/Head/PauseMenu/Modules/FOV/Slider" instance=ExtResource("17_uammv")]
-
-[node name="Handle1" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/FOV/Slider"]
-visible = false
-mesh = SubResource("BoxMesh_c5pmp")
-skeleton = NodePath("")
-
-[node name="Panel_2" parent="Player/Head/PauseMenu/Modules/FOV" instance=ExtResource("17_l54qq")]
-
-[node name="Sensitivity" type="Node3D" parent="Player/Head/PauseMenu/Modules"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
-
-[node name="Chasis" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/Sensitivity"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-visible = false
-mesh = ExtResource("3_wkj5q")
-skeleton = NodePath("")
-
-[node name="Label" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/Sensitivity"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.136, 0.046, 0)
-mesh = SubResource("TextMesh_yhx8s")
-skeleton = NodePath("../../..")
-
-[node name="Panel_2" parent="Player/Head/PauseMenu/Modules/Sensitivity" instance=ExtResource("17_l54qq")]
-
-[node name="Slider" type="Area3D" parent="Player/Head/PauseMenu/Modules/Sensitivity"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00425155, 0.0472608, 0.00906628)
-script = ExtResource("18_jvph2")
-
-[node name="Shape" type="CollisionShape3D" parent="Player/Head/PauseMenu/Modules/Sensitivity/Slider"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0.075, 0, 0)
-shape = SubResource("BoxShape3D_p6m7y")
-
-[node name="Pad" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/Sensitivity/Slider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06, 0, 0)
-visible = false
-mesh = SubResource("BoxMesh_xts4f")
-skeleton = NodePath("")
-
-[node name="Handle" parent="Player/Head/PauseMenu/Modules/Sensitivity/Slider" instance=ExtResource("17_uammv")]
-
-[node name="Handle1" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/Sensitivity/Slider"]
-visible = false
-mesh = SubResource("BoxMesh_c5pmp")
-skeleton = NodePath("")
-
-[node name="Head" type="Node3D" parent="Player/Head/PauseMenu/Modules"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0999999, -5.96046e-08)
-
-[node name="Chasis" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-mesh = SubResource("BoxMesh_nr23w")
-skeleton = NodePath("")
-
-[node name="Label" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/Head"]
-mesh = SubResource("TextMesh_d1ly1")
-skeleton = NodePath("../../..")
-
-[node name="Shadows" type="Node3D" parent="Player/Head/PauseMenu/Modules"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-
-[node name="Chasis" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/Shadows"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-visible = false
-mesh = ExtResource("3_wkj5q")
-skeleton = NodePath("")
-
-[node name="Label" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/Shadows"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133464, 0.0450001, 1.19209e-07)
-mesh = SubResource("TextMesh_yvmdg")
-skeleton = NodePath("../../..")
-
-[node name="Button" type="Area3D" parent="Player/Head/PauseMenu/Modules/Shadows"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.065, 0.038, 0)
-script = ExtResource("19_millw")
-buttonsound = SubResource("EventAsset_03gid")
-
-[node name="Model" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/Shadows/Button"]
-visible = false
-mesh = SubResource("BoxMesh_hapj0")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Head/PauseMenu/Modules/Shadows/Button"]
-shape = SubResource("BoxShape3D_lakiq")
-
-[node name="ButtonBinary" parent="Player/Head/PauseMenu/Modules/Shadows/Button" instance=ExtResource("21_ccf1k")]
-transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0.00125623, 0, 0)
-
-[node name="Panel_3" parent="Player/Head/PauseMenu/Modules/Shadows" instance=ExtResource("20_p0orp")]
-
-[node name="MoveRight" type="Node3D" parent="Player/Head/PauseMenu/Modules"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+[node name="MoveBackward" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("27_d4r4f")]
 visible = false
 
-[node name="Chasis" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveRight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-mesh = ExtResource("3_wkj5q")
-skeleton = NodePath("")
-
-[node name="Label" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveRight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23, 0, 0)
-mesh = SubResource("TextMesh_ismqh")
-skeleton = NodePath("../../..")
-
-[node name="KeyInputGroup" type="Node3D" parent="Player/Head/PauseMenu/Modules/MoveRight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, 0, 0)
-script = ExtResource("20_7dc4m")
-action_name = "move_right"
-
-[node name="Reset" type="Area3D" parent="Player/Head/PauseMenu/Modules/MoveRight/KeyInputGroup"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, 0)
-script = ExtResource("21_trke2")
-buttonsound = ExtResource("22_8nsr5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Head/PauseMenu/Modules/MoveRight/KeyInputGroup/Reset"]
-shape = SubResource("BoxShape3D_3d08w")
-
-[node name="Model" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveRight/KeyInputGroup/Reset"]
-mesh = SubResource("BoxMesh_jpi4h")
-skeleton = NodePath("")
-
-[node name="Label3D" type="Label3D" parent="Player/Head/PauseMenu/Modules/MoveRight/KeyInputGroup/Reset/Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.016)
-pixel_size = 0.0006
-outline_modulate = Color(0, 0, 0, 0)
-text = "RESET"
-uppercase = true
-
-[node name="Key" type="Area3D" parent="Player/Head/PauseMenu/Modules/MoveRight/KeyInputGroup"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, 0, 0)
-script = ExtResource("23_codhy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Head/PauseMenu/Modules/MoveRight/KeyInputGroup/Key"]
-shape = SubResource("BoxShape3D_2t1vn")
-
-[node name="Model" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveRight/KeyInputGroup/Key"]
-mesh = SubResource("BoxMesh_6qnse")
-skeleton = NodePath("")
-
-[node name="Label3D" type="Label3D" parent="Player/Head/PauseMenu/Modules/MoveRight/KeyInputGroup/Key/Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.011)
-pixel_size = 0.0006
-modulate = Color(0, 1, 0, 1)
-text = "..."
-uppercase = true
-
-[node name="MoveLeft" type="Node3D" parent="Player/Head/PauseMenu/Modules"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+[node name="MoveLeft" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("27_d4r4f")]
 visible = false
 
-[node name="Chasis" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveLeft"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-mesh = ExtResource("3_wkj5q")
-skeleton = NodePath("")
-
-[node name="Label" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveLeft"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23, 0, 0)
-mesh = SubResource("TextMesh_38beq")
-skeleton = NodePath("../../..")
-
-[node name="KeyInputGroup" type="Node3D" parent="Player/Head/PauseMenu/Modules/MoveLeft"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, 0, 0)
-script = ExtResource("20_7dc4m")
-action_name = "move_left"
-
-[node name="Reset" type="Area3D" parent="Player/Head/PauseMenu/Modules/MoveLeft/KeyInputGroup"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, 0)
-script = ExtResource("21_trke2")
-buttonsound = ExtResource("22_8nsr5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Head/PauseMenu/Modules/MoveLeft/KeyInputGroup/Reset"]
-shape = SubResource("BoxShape3D_3d08w")
-
-[node name="Model" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveLeft/KeyInputGroup/Reset"]
-mesh = SubResource("BoxMesh_jpi4h")
-skeleton = NodePath("")
-
-[node name="Label3D" type="Label3D" parent="Player/Head/PauseMenu/Modules/MoveLeft/KeyInputGroup/Reset/Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.016)
-pixel_size = 0.0006
-outline_modulate = Color(0, 0, 0, 0)
-text = "RESET"
-uppercase = true
-
-[node name="Key" type="Area3D" parent="Player/Head/PauseMenu/Modules/MoveLeft/KeyInputGroup"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, 0, 0)
-script = ExtResource("23_codhy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Head/PauseMenu/Modules/MoveLeft/KeyInputGroup/Key"]
-shape = SubResource("BoxShape3D_2t1vn")
-
-[node name="Model" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveLeft/KeyInputGroup/Key"]
-mesh = SubResource("BoxMesh_6qnse")
-skeleton = NodePath("")
-
-[node name="Label3D" type="Label3D" parent="Player/Head/PauseMenu/Modules/MoveLeft/KeyInputGroup/Key/Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.011)
-pixel_size = 0.0006
-modulate = Color(0, 1, 0, 1)
-text = "..."
-uppercase = true
-
-[node name="MoveForward" type="Node3D" parent="Player/Head/PauseMenu/Modules"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+[node name="MoveRight" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("27_d4r4f")]
 visible = false
 
-[node name="Chasis" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveForward"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-mesh = ExtResource("3_wkj5q")
-skeleton = NodePath("")
-
-[node name="Label" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveForward"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23, 0, 0)
-mesh = SubResource("TextMesh_jexcb")
-skeleton = NodePath("../../..")
-
-[node name="KeyInputGroup" type="Node3D" parent="Player/Head/PauseMenu/Modules/MoveForward"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, 0, 0)
-script = ExtResource("20_7dc4m")
-action_name = "move_forward"
-
-[node name="Reset" type="Area3D" parent="Player/Head/PauseMenu/Modules/MoveForward/KeyInputGroup"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, 0)
-script = ExtResource("21_trke2")
-buttonsound = ExtResource("22_8nsr5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Head/PauseMenu/Modules/MoveForward/KeyInputGroup/Reset"]
-shape = SubResource("BoxShape3D_3d08w")
-
-[node name="Model" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveForward/KeyInputGroup/Reset"]
-mesh = SubResource("BoxMesh_jpi4h")
-skeleton = NodePath("")
-
-[node name="Label3D" type="Label3D" parent="Player/Head/PauseMenu/Modules/MoveForward/KeyInputGroup/Reset/Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.016)
-pixel_size = 0.0006
-outline_modulate = Color(0, 0, 0, 0)
-text = "RESET"
-uppercase = true
-
-[node name="Key" type="Area3D" parent="Player/Head/PauseMenu/Modules/MoveForward/KeyInputGroup"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, 0, 0)
-script = ExtResource("23_codhy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Head/PauseMenu/Modules/MoveForward/KeyInputGroup/Key"]
-shape = SubResource("BoxShape3D_2t1vn")
-
-[node name="Model" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveForward/KeyInputGroup/Key"]
-mesh = SubResource("BoxMesh_6qnse")
-skeleton = NodePath("")
-
-[node name="Label3D" type="Label3D" parent="Player/Head/PauseMenu/Modules/MoveForward/KeyInputGroup/Key/Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.011)
-pixel_size = 0.0006
-modulate = Color(0, 1, 0, 1)
-text = "..."
-uppercase = true
-
-[node name="MoveBackward" type="Node3D" parent="Player/Head/PauseMenu/Modules"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+[node name="MoveForward" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("27_d4r4f")]
 visible = false
 
-[node name="Chasis" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveBackward"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-mesh = ExtResource("3_wkj5q")
-skeleton = NodePath("")
+[node name="Level" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("16_fytw8")]
+visible = false
 
-[node name="Label" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveBackward"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23, 0, 0)
-mesh = SubResource("TextMesh_53nur")
-skeleton = NodePath("../../..")
+[node name="FOV" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("17_lcos1")]
+visible = false
 
-[node name="KeyInputGroup" type="Node3D" parent="Player/Head/PauseMenu/Modules/MoveBackward"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, 0, 0)
-script = ExtResource("20_7dc4m")
-action_name = "move_backward"
+[node name="Sensitivity" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("18_ap3io")]
+visible = false
 
-[node name="Reset" type="Area3D" parent="Player/Head/PauseMenu/Modules/MoveBackward/KeyInputGroup"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, 0)
-script = ExtResource("21_trke2")
-buttonsound = ExtResource("22_8nsr5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Head/PauseMenu/Modules/MoveBackward/KeyInputGroup/Reset"]
-shape = SubResource("BoxShape3D_3d08w")
-
-[node name="Model" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveBackward/KeyInputGroup/Reset"]
-mesh = SubResource("BoxMesh_jpi4h")
-skeleton = NodePath("")
-
-[node name="Label3D" type="Label3D" parent="Player/Head/PauseMenu/Modules/MoveBackward/KeyInputGroup/Reset/Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.016)
-pixel_size = 0.0006
-outline_modulate = Color(0, 0, 0, 0)
-text = "RESET"
-uppercase = true
-
-[node name="Key" type="Area3D" parent="Player/Head/PauseMenu/Modules/MoveBackward/KeyInputGroup"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, 0, 0)
-script = ExtResource("23_codhy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Head/PauseMenu/Modules/MoveBackward/KeyInputGroup/Key"]
-shape = SubResource("BoxShape3D_2t1vn")
-
-[node name="Model" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/MoveBackward/KeyInputGroup/Key"]
-mesh = SubResource("BoxMesh_6qnse")
-skeleton = NodePath("")
-
-[node name="Label3D" type="Label3D" parent="Player/Head/PauseMenu/Modules/MoveBackward/KeyInputGroup/Key/Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.011)
-pixel_size = 0.0006
-modulate = Color(0, 1, 0, 1)
-text = "..."
-uppercase = true
-
-[node name="Level" type="Node3D" parent="Player/Head/PauseMenu/Modules"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
-
-[node name="Chasis" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-mesh = ExtResource("3_wkj5q")
-skeleton = NodePath("")
-
-[node name="Label" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23, 0, 0)
-mesh = SubResource("TextMesh_6srfu")
-skeleton = NodePath("../../..")
-
-[node name="LevelButton" type="Area3D" parent="Player/Head/PauseMenu/Modules/Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19979, 0, 0)
-script = ExtResource("24_khqln")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Head/PauseMenu/Modules/Level/LevelButton"]
-shape = SubResource("BoxShape3D_lakiq")
-
-[node name="Model" type="MeshInstance3D" parent="Player/Head/PauseMenu/Modules/Level/LevelButton"]
-mesh = SubResource("BoxMesh_vavrf")
-skeleton = NodePath("")
+[node name="Shadows" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("19_wjcmb")]
+visible = false
 
 [node name="Player Audios" parent="Player" instance=ExtResource("24_2lgak")]
 
@@ -971,7 +426,11 @@ skeleton = NodePath("../../..")
 
 [node name="Lamp" type="OmniLight3D" parent="Room"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 2)
-light_energy = 2.0
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="Lamp2" type="OmniLight3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 4)
 shadow_enabled = true
 omni_range = 10.0
 
@@ -982,63 +441,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.2499)
 mesh = SubResource("BoxMesh_vselk")
 skeleton = NodePath("")
 
-[node name="Head" type="Area3D" parent="Room/StaticBody3D/Desk"]
-transform = Transform3D(0.849552, 0, 0.527505, 0, 1, 0, -0.527505, 0, 0.849552, 0, 0.549073, 0)
-script = ExtResource("2_2xa5e")
-
-[node name="Chasis" type="MeshInstance3D" parent="Room/StaticBody3D/Desk/Head"]
-mesh = SubResource("BoxMesh_nr23w")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/StaticBody3D/Desk/Head"]
-shape = SubResource("BoxShape3D_ods8s")
-
-[node name="FOV" type="Area3D" parent="Room/StaticBody3D/Desk"]
-transform = Transform3D(0.712932, 0, -0.701233, 0, 1, 0, 0.701233, 0, 0.712932, 0.662731, 0.549073, 0)
-script = ExtResource("2_2xa5e")
-
-[node name="Chasis" type="MeshInstance3D" parent="Room/StaticBody3D/Desk/FOV"]
-mesh = ExtResource("3_wkj5q")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/StaticBody3D/Desk/FOV"]
-shape = SubResource("BoxShape3D_ods8s")
+[node name="FOV" parent="Room/StaticBody3D/Desk" instance=ExtResource("30_sjjww")]
+transform = Transform3D(0.72246, 0, 0.691412, 0, 1, 0, -0.691412, 0, 0.72246, -0.6019, 0.514444, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/StaticBody3D"]
 shape = SubResource("BoxShape3D_aom5b")
 
-[node name="MoveRight" type="Area3D" parent="Room"]
-transform = Transform3D(-0.927085, 0, -0.374849, 0, 1, 0, 0.374849, 0, -0.927085, 0.753194, 0.047754, 0.464709)
-script = ExtResource("2_2xa5e")
+[node name="Level" parent="Room" instance=ExtResource("30_sjjww")]
+transform = Transform3D(-0.635916, 0, 0.771757, 0, 1, 0, -0.771757, 0, -0.635916, 3.07296, -0.00314009, 0.277019)
 
-[node name="Chasis" type="MeshInstance3D" parent="Room/MoveRight"]
-mesh = ExtResource("3_wkj5q")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/MoveRight"]
-shape = SubResource("BoxShape3D_ods8s")
-
-[node name="Level" type="Area3D" parent="Room"]
-transform = Transform3D(-0.982116, 0, 0.188273, 0, 1, 0, -0.188273, 0, -0.982116, 3.29864, 0.047754, 0.0951356)
-script = ExtResource("2_2xa5e")
-
-[node name="Chasis" type="MeshInstance3D" parent="Room/Level"]
-mesh = ExtResource("3_wkj5q")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Level"]
-shape = SubResource("BoxShape3D_ods8s")
-
-[node name="MoveForward" type="Area3D" parent="Room"]
-transform = Transform3D(-0.833885, 0, 0.551937, 0, 1, 0, -0.551937, 0, -0.833885, 3.51169, 0.047754, 3.64519)
-script = ExtResource("2_2xa5e")
-
-[node name="Chasis" type="MeshInstance3D" parent="Room/MoveForward"]
-mesh = ExtResource("3_wkj5q")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/MoveForward"]
-shape = SubResource("BoxShape3D_ods8s")
+[node name="MoveRight" parent="Room" instance=ExtResource("30_sjjww")]
+transform = Transform3D(-0.941305, 0, -0.337555, 0, 1, 0, 0.337555, 0, -0.941305, 0.901224, -0.00314009, 0.465465)
 
 [node name="Chest" parent="Room" instance=ExtResource("30_cyue7")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -2, 0, 0)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -2, 0, 3)
+password = [2, 7, 3]
+
+[node name="MoveForward" parent="Room/Chest" instance=ExtResource("30_sjjww")]
+transform = Transform3D(-0.996335, 0, 0.0855211, 0, 1, 0, -0.0855211, 0, -0.996335, 0.0204918, 0.23049, -0.0928496)
+
+[node name="Chest2" parent="Room" instance=ExtResource("30_cyue7")]
+transform = Transform3D(0.991088, 0, 0.133208, 0, 1, 0, -0.133208, 0, 0.991088, -1.7978, 0, -0.24228)
+password = [2, 7, 3]
+
+[node name="Jump" parent="Room/Chest2" instance=ExtResource("30_sjjww")]
+transform = Transform3D(-0.996335, 0, 0.0855211, 0, 1, 0, -0.0855211, 0, -0.996335, 0.0204918, 0.23049, -0.0928496)
