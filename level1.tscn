@@ -177,6 +177,9 @@ visible = false
 [node name="MoveForward" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("27_d4r4f")]
 visible = false
 
+[node name="MoveJump" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("27_d4r4f")]
+visible = false
+
 [node name="Level" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("16_fytw8")]
 visible = false
 
@@ -453,16 +456,16 @@ transform = Transform3D(-0.635916, 0, 0.771757, 0, 1, 0, -0.771757, 0, -0.635916
 [node name="MoveRight" parent="Room" instance=ExtResource("30_sjjww")]
 transform = Transform3D(-0.941305, 0, -0.337555, 0, 1, 0, 0.337555, 0, -0.941305, 0.901224, -0.00314009, 0.465465)
 
-[node name="Chest" parent="Room" instance=ExtResource("30_cyue7")]
+[node name="Chest2" parent="Room" instance=ExtResource("30_cyue7")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -2, 0, 3)
 password = [2, 7, 3]
 
-[node name="MoveForward" parent="Room/Chest" instance=ExtResource("30_sjjww")]
+[node name="MoveForward" parent="Room/Chest2" instance=ExtResource("30_sjjww")]
 transform = Transform3D(-0.996335, 0, 0.0855211, 0, 1, 0, -0.0855211, 0, -0.996335, 0.0204918, 0.23049, -0.0928496)
 
-[node name="Chest2" parent="Room" instance=ExtResource("30_cyue7")]
+[node name="Chest" parent="Room" instance=ExtResource("30_cyue7")]
 transform = Transform3D(0.991088, 0, 0.133208, 0, 1, 0, -0.133208, 0, 0.991088, -1.7978, 0, -0.24228)
 password = [2, 7, 3]
 
-[node name="Jump" parent="Room/Chest2" instance=ExtResource("30_sjjww")]
+[node name="MoveJump" parent="Room/Chest" instance=ExtResource("30_sjjww")]
 transform = Transform3D(-0.996335, 0, 0.0855211, 0, 1, 0, -0.0855211, 0, -0.996335, 0.0204918, 0.23049, -0.0928496)
