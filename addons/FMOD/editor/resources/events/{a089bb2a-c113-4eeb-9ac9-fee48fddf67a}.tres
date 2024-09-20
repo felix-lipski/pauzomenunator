@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://bx65qjdlg8njd"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/UI/MODULE/Clicks/UI_module_click 2"
+guid = "{a089bb2a-c113-4eeb-9ac9-fee48fddf67a}"
+name = "UI_module_click 2"

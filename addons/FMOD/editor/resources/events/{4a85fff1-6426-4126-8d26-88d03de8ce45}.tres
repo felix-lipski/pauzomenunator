@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://cde7u2t051diq"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/UI/MODULE/FOV/UI_module_fov"
+guid = "{4a85fff1-6426-4126-8d26-88d03de8ce45}"
+name = "UI_module_fov"
