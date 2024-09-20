@@ -1,14 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://s480gw6j3vrx"]
+[gd_scene load_steps=12 format=3 uid="uid://s480gw6j3vrx"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwrwu"]
-albedo_color = Color(0.221467, 4.81308e-08, 0.117494, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_5ubri"]
-material = SubResource("StandardMaterial3D_jwrwu")
-size = Vector3(5, 2, 3)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_il5oh"]
-size = Vector3(100, 2, 100)
+[ext_resource type="Script" path="res://pickable.gd" id="1_ejeon"]
+[ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="2_kn8c2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6283e"]
 
@@ -24,16 +17,27 @@ ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.0
 fog_light_color = Color(1, 1, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ch1a4"]
+size = Vector3(6, 0.5, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucin3"]
+albedo_color = Color(0.4756, 0.55216, 0.58, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0gj2w"]
+material = SubResource("StandardMaterial3D_ucin3")
+size = Vector3(6, 0.5, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_erixq"]
+size = Vector3(2, 1, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cvbvp"]
+material = SubResource("StandardMaterial3D_ucin3")
+size = Vector3(2, 1, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k38gc"]
+size = Vector3(0.5, 0.09, 0.1)
+
 [node name="World" type="Node3D"]
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 1)
-mesh = SubResource("BoxMesh_5ubri")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
-shape = SubResource("BoxShape3D_il5oh")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dpw8f")
@@ -41,3 +45,49 @@ environment = SubResource("Environment_dpw8f")
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.614506, -0.564744, 0.55086, 0, 0.698253, 0.715851, -0.788913, -0.439895, 0.42908, 0, 4, 0)
 shadow_enabled = true
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_ch1a4")
+
+[node name="Model" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+mesh = SubResource("BoxMesh_0gj2w")
+skeleton = NodePath("../../..")
+
+[node name="Floor2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 0)
+shape = SubResource("BoxShape3D_erixq")
+
+[node name="Model" type="MeshInstance3D" parent="Floor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 0)
+mesh = SubResource("BoxMesh_cvbvp")
+skeleton = NodePath("../../..")
+
+[node name="MoveLeft" type="Area3D" parent="."]
+transform = Transform3D(0.745732, 0, 0.666246, 0, 1, 0, -0.666246, 0, 0.745732, -0.739848, 0.0447179, 3.27618)
+script = ExtResource("1_ejeon")
+
+[node name="Chasis" type="MeshInstance3D" parent="MoveLeft"]
+mesh = ExtResource("2_kn8c2")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveLeft"]
+shape = SubResource("BoxShape3D_k38gc")
+
+[node name="MoveBackward" type="Area3D" parent="."]
+transform = Transform3D(0.988533, 0, -0.151002, 0, 1, 0, 0.151002, 0, 0.988533, 0.342429, 0.0447179, -0.78238)
+script = ExtResource("1_ejeon")
+
+[node name="Chasis" type="MeshInstance3D" parent="MoveBackward"]
+mesh = ExtResource("2_kn8c2")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveBackward"]
+shape = SubResource("BoxShape3D_k38gc")
