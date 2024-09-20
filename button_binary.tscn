@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhpo7uwxm015"]
+
+[ext_resource type="Script" path="res://button_binary.gd" id="1_o3n2k"]
+[ext_resource type="PackedScene" uid="uid://beiu3q5ba2nll" path="res://models/Pauza/Tekstury Przycisk/Button_Zielone.fbx" id="2_bppo0"]
+[ext_resource type="PackedScene" uid="uid://60ssgsbk6btg" path="res://models/Pauza/Tekstury Przycisk/Button_Czerwone.fbx" id="3_yyo8s"]
+
+[node name="ButtonBinary" type="Node3D"]
+script = ExtResource("1_o3n2k")
+
+[node name="Button_Zielone" parent="." instance=ExtResource("2_bppo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0113051)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Button_Zielone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00658184)
+visible = false
+omni_range = 0.0186071
+omni_attenuation = 0.167
+
+[node name="Button_Czerwone" parent="." instance=ExtResource("3_yyo8s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0113051)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Button_Czerwone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00658184)
+visible = false
+omni_range = 0.0186071
+omni_attenuation = 0.167

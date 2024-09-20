@@ -11,10 +11,10 @@ func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, 
 		#player.get_parent().remove_child(player)
 		#current_scene.add_child(player)
 		var level_switcher = get_node("/root/LevelSwitcher")
-		if level_switcher.level == "level1":
-			level_switcher.switch_level("level2")
+		if level_switcher.level == 1:
+			level_switcher.switch_level(2)
 		else:
-			level_switcher.switch_level("level1")
+			level_switcher.switch_level(1)
 		#if next_scene:
 			#get_tree().change_scene_to(next_scene)
 			#
