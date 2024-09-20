@@ -1,0 +1,45 @@
+[gd_resource type="EventAsset" load_steps=7 format=3 uid="uid://dqogb1qgmcamc"]
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_ID" id="FMOD_STUDIO_PARAMETER_ID_q877a"]
+data1 = 1234690778
+data2 = 752396139
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_DESCRIPTION" id="FMOD_STUDIO_PARAMETER_DESCRIPTION_o6bkl"]
+name = "MENU CLOSE"
+id = SubResource("FMOD_STUDIO_PARAMETER_ID_q877a")
+maximum = 1.0
+guid = "{5f319796-4415-446d-9c6f-13ba28782df0}"
+
+[sub_resource type="ParameterAsset" id="ParameterAsset_ejkbs"]
+parameter_description = SubResource("FMOD_STUDIO_PARAMETER_DESCRIPTION_o6bkl")
+path = "parameter:/MENU CLOSE"
+guid = "{5f319796-4415-446d-9c6f-13ba28782df0}"
+name = "MENU CLOSE"
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_ID" id="FMOD_STUDIO_PARAMETER_ID_wr814"]
+data1 = 2527052716
+data2 = 1224023664
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_DESCRIPTION" id="FMOD_STUDIO_PARAMETER_DESCRIPTION_bcl30"]
+name = "MENU OPEN"
+id = SubResource("FMOD_STUDIO_PARAMETER_ID_wr814")
+maximum = 1.0
+guid = "{112df773-3a2b-408f-8028-7bc36828d85f}"
+
+[sub_resource type="ParameterAsset" id="ParameterAsset_qod0p"]
+parameter_description = SubResource("FMOD_STUDIO_PARAMETER_DESCRIPTION_bcl30")
+path = "parameter:/MENU OPEN"
+guid = "{112df773-3a2b-408f-8028-7bc36828d85f}"
+name = "MENU OPEN"
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+parameters = {
+"{112df773-3a2b-408f-8028-7bc36828d85f}": SubResource("ParameterAsset_qod0p"),
+"{5f319796-4415-446d-9c6f-13ba28782df0}": SubResource("ParameterAsset_ejkbs")
+}
+path = "event:/UI/MENU IN-OUT/UI_menu_events"
+guid = "{9c8d5fd1-ae41-4035-8e65-566e5286e525}"
+name = "UI_menu_events"
