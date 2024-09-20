@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdgbvgelsw5nb"]
+[gd_scene load_steps=6 format=3 uid="uid://bdgbvgelsw5nb"]
 
 [ext_resource type="Script" path="res://pickable.gd" id="1_cojf6"]
+[ext_resource type="EventAsset" uid="uid://cbyo6lfknyrd5" path="res://addons/FMOD/editor/resources/events/{1a03b03d-5629-46d0-8a42-3432b7751646}.tres" id="2_jkc5b"]
 [ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="2_nd3ib"]
 [ext_resource type="PackedScene" uid="uid://cd0rjjciaxf67" path="res://models/Pauza/Panel_5/Panel_5.fbx" id="3_0t2n8"]
 
@@ -9,6 +10,7 @@ size = Vector3(0.611389, 0.125935, 0.149512)
 
 [node name="Module" type="Area3D"]
 script = ExtResource("1_cojf6")
+module_collect = ExtResource("2_jkc5b")
 
 [node name="Chasis" type="MeshInstance3D" parent="."]
 visible = false
