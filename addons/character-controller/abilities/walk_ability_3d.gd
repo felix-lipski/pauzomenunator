@@ -18,6 +18,7 @@ func apply(velocity: Vector3, speed : float, is_on_floor : bool, direction : Vec
 	if not is_actived():
 		return velocity
 	
+	
 	# Using only the horizontal velocity, interpolate towards the input.
 	var temp_vel := velocity
 	temp_vel.y = 0

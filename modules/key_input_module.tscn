@@ -60,7 +60,7 @@ action_name = "move_backward"
 [node name="Reset" type="Area3D" parent="KeyInputGroup"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, 0)
 script = ExtResource("3_u5pov")
-buttonsound = ExtResource("5_a3eol")
+ui_module_click_reset = ExtResource("5_a3eol")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KeyInputGroup/Reset"]
 shape = SubResource("BoxShape3D_3d08w")
