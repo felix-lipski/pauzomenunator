@@ -4,6 +4,7 @@ var toggled = true
 
 func on_press(toggled):
 	get_node("/root/LevelSwitcher/World/Sun").shadow_enabled = toggled
+	get_node("/root/LevelSwitcher").shadows_enabled = toggled
 	for child in get_node("/root/LevelSwitcher/World").get_children():
 		if child is OmniLight3D:
 			child.shadow_enabled = toggled

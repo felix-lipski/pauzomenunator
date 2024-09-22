@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b1ia2m7q82r5p" path="res://modules/fov.tscn" id="17_lcos1"]
 [ext_resource type="PackedScene" uid="uid://c46v6gvwxgsp3" path="res://modules/sensitivity.tscn" id="18_ap3io"]
 [ext_resource type="PackedScene" uid="uid://lhtrts4w5uam" path="res://modules/shadows.tscn" id="19_wjcmb"]
-[ext_resource type="PackedScene" path="res://language.tscn" id="20_xe13v"]
+[ext_resource type="PackedScene" uid="uid://paqgacuem38h" path="res://language.tscn" id="20_xe13v"]
 [ext_resource type="PackedScene" uid="uid://4hjhkcdrftsc" path="res://models/hgj2024/sciana zwykla/sciana_zwykla.glb" id="21_24sf0"]
 [ext_resource type="PackedScene" uid="uid://3s3btivpo2gj" path="res://win_game.tscn" id="22_6ygjg"]
 [ext_resource type="PackedScene" uid="uid://dawk3o1pjoo1d" path="res://models/hgj2024/sciana dziura/sciana_dziura.glb" id="22_35x5a"]

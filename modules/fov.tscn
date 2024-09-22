@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1ia2m7q82r5p"]
+[gd_scene load_steps=13 format=3 uid="uid://b1ia2m7q82r5p"]
 
 [ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="1_ttlag"]
 [ext_resource type="Script" path="res://fov_slider.gd" id="2_kghdc"]
@@ -30,6 +30,12 @@ albedo_color = Color(0, 0.121111, 0.11599, 1)
 material = SubResource("StandardMaterial3D_qcyxp")
 size = Vector3(0.01, 0.03, 0.04)
 
+[sub_resource type="TextMesh" id="TextMesh_npl1t"]
+text = "FOV"
+uppercase = true
+pixel_size = 0.002
+depth = 0.005
+
 [node name="FOV" type="Node3D"]
 
 [node name="Chasis" type="MeshInstance3D" parent="."]
@@ -40,6 +46,7 @@ skeleton = NodePath("")
 
 [node name="Label" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107896, 0.0419998, 0)
+visible = false
 mesh = SubResource("TextMesh_myarf")
 skeleton = NodePath("../../..")
 
@@ -67,3 +74,18 @@ mesh = SubResource("BoxMesh_c5pmp")
 skeleton = NodePath("")
 
 [node name="Panel_3" parent="." instance=ExtResource("5_712fl")]
+
+[node name="LabelNice" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0875206, 0.0436725, 0.00471441)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LabelNice"]
+mesh = SubResource("TextMesh_npl1t")
+skeleton = NodePath("../Label3D")
+
+[node name="Label3D" type="Label3D" parent="LabelNice"]
+pixel_size = 0.001
+shaded = true
+modulate = Color(0, 0, 0, 1)
+text = "FOV
+"
+uppercase = true

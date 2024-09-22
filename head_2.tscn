@@ -12,12 +12,14 @@ depth = 0.005
 
 [node name="Panel_1" parent="." instance=ExtResource("1_vl1ib")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="LabelNice" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LabelNice"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0440576, 0)
 mesh = SubResource("TextMesh_nm8d6")
 skeleton = NodePath("../Label3D")
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="Label3D" type="Label3D" parent="LabelNice"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0440576, 0)
 pixel_size = 0.001
 shaded = true

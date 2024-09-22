@@ -8,6 +8,8 @@ var instance_lvl_2: EventInstance
 #var level = "level1"
 var level = 1
 
+var shadows_enabled = true
+
 var levels = [null, null, null]
 var postions = [null, Vector3(), Vector3()]
 var language = "traditional"
@@ -42,8 +44,13 @@ func switch_level(new_level: int):
 		#p.queue_free()
 	instance.add_child(player)
 	player.position = postions[new_level]
-
+	
 	add_child(instance)
+	
+	$World/Sun.shadow_enabled = shadows_enabled
+	for child in $World.get_children():
+		if child is OmniLight3D:
+			child.shadow_enabled = shadows_enabled
 	
 	level = new_level
 

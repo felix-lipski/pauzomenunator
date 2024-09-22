@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqkcy7qm7gggb"]
+[gd_scene load_steps=14 format=3 uid="uid://paqgacuem38h"]
 
 [ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="2_ytx05"]
 [ext_resource type="Script" path="res://language.gd" id="3_87p7l"]
+[ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{a089bb2a-c113-4eeb-9ac9-fee48fddf67a}.tres" id="3_c5dwb"]
 [ext_resource type="PackedScene" uid="uid://v4b8kn8b36q8" path="res://models/Pauza/Tekstury Przycisk/Button_Czerwone.glb" id="6_hgioe"]
-[ext_resource type="PackedScene" path="res://models/Pauza/Panel_5/Panel_5.fbx" id="8_0kcde"]
+[ext_resource type="PackedScene" uid="uid://cd0rjjciaxf67" path="res://models/Pauza/Panel_5/Panel_5.fbx" id="8_0kcde"]
 [ext_resource type="PackedScene" uid="uid://bpf21inwaen33" path="res://models/Pauza/Panel_3/Panel_3.glb" id="9_i3bwl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w0y3"]
@@ -50,6 +51,7 @@ skeleton = NodePath("../../..")
 [node name="KeyInputGroup" type="Area3D" parent="."]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.102728, 0.0405107, 0)
 script = ExtResource("3_87p7l")
+buttonsound = ExtResource("3_c5dwb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KeyInputGroup"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0254575, 0, 0)

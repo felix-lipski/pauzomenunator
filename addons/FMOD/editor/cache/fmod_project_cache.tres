@@ -20,14 +20,7 @@
 [ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{45fcaceb-0cfe-4013-af14-1ded9da32beb}.tres" id="14_cj4ao"]
 [ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{4a85fff1-6426-4126-8d26-88d03de8ce45}.tres" id="15_ch88h"]
 [ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{24beffeb-1cd9-4388-a9dd-8e9cd8ae52ac}.tres" id="16_bents"]
-
-[sub_resource type="EventAsset" id="EventAsset_55pkw"]
-is_oneshot = true
-min_distance = 1.0
-max_distance = 20.0
-path = "event:/UI/MODULE/Clicks/UI_click_lvl_select"
-guid = "{3f027bd0-1920-46ce-87ff-6942217f899f}"
-name = "UI_click_lvl_select"
+[ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{3f027bd0-1920-46ce-87ff-6942217f899f}.tres" id="16_yigye"]
 
 [resource]
 banks = {
@@ -41,7 +34,7 @@ events = {
 "{1a03b03d-5629-46d0-8a42-3432b7751646}": ExtResource("9_m27l0"),
 "{24beffeb-1cd9-4388-a9dd-8e9cd8ae52ac}": ExtResource("16_bents"),
 "{359e8faa-dcd5-4f5b-bf7e-bff840004884}": ExtResource("7_eyki2"),
-"{3f027bd0-1920-46ce-87ff-6942217f899f}": SubResource("EventAsset_55pkw"),
+"{3f027bd0-1920-46ce-87ff-6942217f899f}": ExtResource("16_yigye"),
 "{45fcaceb-0cfe-4013-af14-1ded9da32beb}": ExtResource("14_cj4ao"),
 "{47291653-3b3c-44a7-b12e-eda45c033768}": ExtResource("8_ls1hb"),
 "{4a85fff1-6426-4126-8d26-88d03de8ce45}": ExtResource("15_ch88h"),
@@ -192,7 +185,7 @@ event_tree = [{
 "item_type": 1,
 "node_name": "UI_click_lvl_select",
 "path": "event:/UI/MODULE/Clicks/UI_click_lvl_select",
-"resource": SubResource("EventAsset_55pkw")
+"resource": ExtResource("16_yigye")
 }, {
 "children": [],
 "item_type": 1,
