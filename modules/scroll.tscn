@@ -1,58 +1,27 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlnknjjr20uk2"]
+[gd_scene load_steps=7 format=3 uid="uid://dlnknjjr20uk2"]
 
 [ext_resource type="Script" path="res://scroll.gd" id="1_6iewp"]
 [ext_resource type="PackedScene" uid="uid://dklcnarh1xtm2" path="res://models/Pauza/Panel_Boczny/Panel_Boczny.glb" id="1_pg4bl"]
-[ext_resource type="EventAsset" uid="uid://b5t8lq2rkoo4d" path="res://addons/FMOD/editor/resources/events/{45fcaceb-0cfe-4013-af14-1ded9da32beb}.tres" id="2_25nhg"]
+[ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{45fcaceb-0cfe-4013-af14-1ded9da32beb}.tres" id="2_25nhg"]
 [ext_resource type="PackedScene" uid="uid://dghosr7jba4g8" path="res://models/Pauza/Tekstury Przycisk/Strzałka.glb" id="3_sm3x5"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ih24"]
-albedo_color = Color(0, 0.38001, 0.632876, 1)
-metallic_specular = 1.0
-roughness = 0.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_lakiq"]
+size = Vector3(0.03, 0.03, 0.03)
 
-[sub_resource type="BoxMesh" id="BoxMesh_y7m33"]
-material = SubResource("StandardMaterial3D_5ih24")
-size = Vector3(0.14, 0.3, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yetc6"]
-albedo_color = Color(0.876812, 0.865472, 0.871979, 1)
-
-[sub_resource type="TextMesh" id="TextMesh_ia46r"]
-material = SubResource("StandardMaterial3D_yetc6")
+[sub_resource type="TextMesh" id="TextMesh_27day"]
 text = "pauzo
 menus
 crolo
 nator"
 uppercase = true
-line_spacing = -5.0
-pixel_size = 0.0014
-depth = 0.002
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lakiq"]
-size = Vector3(0.03, 0.03, 0.03)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rt8jq"]
-albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_vavrf"]
-material = SubResource("StandardMaterial3D_rt8jq")
-size = Vector3(0.03, 0.03, 0.03)
+line_spacing = -6.0
+pixel_size = 0.002
+depth = 0.005
 
 [node name="Scroll" type="Node3D"]
 
 [node name="Panel_Boczny" parent="." instance=ExtResource("1_pg4bl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0970559, 0)
-
-[node name="Chasis" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-visible = false
-mesh = SubResource("BoxMesh_y7m33")
-skeleton = NodePath("")
-
-[node name="Label" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0433809, -0.00755052)
-mesh = SubResource("TextMesh_ia46r")
-skeleton = NodePath("../..")
 
 [node name="Buttons" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07, 0.00621957)
@@ -69,11 +38,6 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Down"]
 shape = SubResource("BoxShape3D_lakiq")
 
-[node name="Model" type="MeshInstance3D" parent="Buttons/Down"]
-visible = false
-mesh = SubResource("BoxMesh_vavrf")
-skeleton = NodePath("")
-
 [node name="Up" type="Area3D" parent="Buttons"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.0128992, 0)
 script = ExtResource("1_6iewp")
@@ -82,10 +46,25 @@ scroll_lever = ExtResource("2_25nhg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Up"]
 shape = SubResource("BoxShape3D_lakiq")
 
-[node name="Model" type="MeshInstance3D" parent="Buttons/Up"]
-visible = false
-mesh = SubResource("BoxMesh_vavrf")
-skeleton = NodePath("")
-
 [node name="Strzałka" parent="Buttons/Up" instance=ExtResource("3_sm3x5")]
 transform = Transform3D(1.31134e-07, 1, 0, -1, 1.31134e-07, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.0440576, -0.00830353)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72529e-09, 0)
+mesh = SubResource("TextMesh_27day")
+skeleton = NodePath("")
+
+[node name="Label3D2" type="Label3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72529e-09, 0)
+pixel_size = 0.001
+shaded = true
+modulate = Color(0, 0, 0, 1)
+text = "pauzo
+menus
+crolo
+nator"
+uppercase = true
+line_spacing = -11.0

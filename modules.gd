@@ -1,6 +1,6 @@
 extends Node3D
 
-var modules_n = 0
+var modules_n = 1
 
 func _ready() -> void:
 	pass

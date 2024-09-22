@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://s480gw6j3vrx"]
+[gd_scene load_steps=21 format=3 uid="uid://s480gw6j3vrx"]
 
 [ext_resource type="PackedScene" uid="uid://nf36qqggcoh1" path="res://models/hgj2024/dach_podl/dach_podl.glb" id="1_kut48"]
 [ext_resource type="PackedScene" uid="uid://bdgbvgelsw5nb" path="res://pickable.tscn" id="2_52e0d"]
@@ -44,6 +44,9 @@ size = Vector3(0.8, 2, 0.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6sd3a"]
 size = Vector3(1.1, 3, 1.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v7nay"]
+size = Vector3(1.43951, 2.68628, 0.20105)
 
 [node name="World" type="Node3D"]
 
@@ -137,15 +140,6 @@ transform = Transform3D(-12, 0, 1.19209e-06, 0, 12, 0, -1.19209e-06, 0, -12, 16.
 [node name="Block17" parent="Blocks" instance=ExtResource("4_pgev4")]
 transform = Transform3D(-13, 0, -2.38419e-07, 0, 13, 0, 2.38419e-07, 0, -13, 89.5591, -19, 37.5776)
 
-[node name="Chest2" parent="." instance=ExtResource("3_tm2ny")]
-transform = Transform3D(-1, 0, 2.62269e-07, 0, 1, 0, -2.62269e-07, 0, -1, -4.14715, 4.76837e-07, 2.35362)
-visible = false
-password = [4, 0, 4]
-arabic = true
-
-[node name="Sensitivity" parent="Chest2" instance=ExtResource("2_52e0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134143, 0)
-
 [node name="MoveCrouch" parent="." instance=ExtResource("2_52e0d")]
 transform = Transform3D(0.0561658, 0.0288731, -0.998004, -0.842458, 0.53782, -0.0318524, 0.535827, 0.842565, 0.0545315, 1.4702, 0.257535, -5.34658)
 
@@ -181,13 +175,13 @@ number = 273
 transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.246559, -6)
 
 [node name="Wall3" parent="." instance=ExtResource("6_sxlv1")]
-transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.246559, 4)
+transform = Transform3D(-1.1, 0, 8.74228e-08, 0, 1, 0, -9.61651e-08, 0, -1, -2, 0.246559, 4)
 
 [node name="Wall2" parent="." instance=ExtResource("6_sxlv1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0.210456, -1)
 
 [node name="Wall4" parent="." instance=ExtResource("6_sxlv1")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0.210456, -1)
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -7, 0.210456, -1)
 
 [node name="Chimney" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39388, 0, -4)
@@ -212,8 +206,15 @@ transform = Transform3D(1.43277, 0, 1.39541, 0, 2, 0, -1.39541, 0, 1.43277, 0.12
 [node name="Worek" parent="." instance=ExtResource("11_633sr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.835913, 0.216177, 1.49288)
 
-[node name="Worek3" parent="." instance=ExtResource("11_633sr")]
-transform = Transform3D(0.298655, 0, 0.707554, 0, 0.8, 0, -0.566043, 0, 0.373319, 0.217903, 0.216177, 1.83757)
-
 [node name="Worek2" parent="." instance=ExtResource("11_633sr")]
 transform = Transform3D(0.391711, 0, 0.920088, 0, 1, 0, -0.920088, 0, 0.391711, -0.284261, 0.138449, 1.41838)
+
+[node name="Worek4" parent="." instance=ExtResource("11_633sr")]
+transform = Transform3D(-0.969063, 0, 0.246813, 0, 1, 0, -0.246813, 0, -0.969063, -6.50914, 0.138449, -0.819279)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.665437, 0, 0.975069)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.39444, -0.0270971, 0.993239)
+shape = SubResource("BoxShape3D_v7nay")

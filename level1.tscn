@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://bwvxph837x6em"]
+[gd_scene load_steps=70 format=3 uid="uid://bwvxph837x6em"]
 
 [ext_resource type="Script" path="res://level1.gd" id="1_4dvhk"]
 [ext_resource type="Script" path="res://addons/character-controller/example/main/player.gd" id="4_4l76r"]
@@ -34,8 +34,10 @@
 [ext_resource type="PackedScene" uid="uid://bk4kojpks7tgl" path="res://modules/key_input_module.tscn" id="27_d4r4f"]
 [ext_resource type="PackedScene" uid="uid://bowcaum5vux4f" path="res://models/hgj2024/sciana dzwi/sciana_dzwi.glb" id="27_wwynl"]
 [ext_resource type="PackedScene" path="res://number_clue.tscn" id="28_g0sv4"]
+[ext_resource type="PackedScene" uid="uid://bcs26lsqao1qe" path="res://head_2.tscn" id="28_qtv58"]
 [ext_resource type="PackedScene" uid="uid://cxg4u4qcopgy7" path="res://models/Pauza/Mebel/Mebel.glb" id="28_ryayw"]
 [ext_resource type="PackedScene" uid="uid://ex8cj3d42x5a" path="res://lamp.tscn" id="29_gohn0"]
+[ext_resource type="PackedScene" uid="uid://ifxmswsgndl5" path="res://credits.tscn" id="29_rng24"]
 [ext_resource type="PackedScene" uid="uid://ca7xo151vkhx8" path="res://chest.tscn" id="30_cyue7"]
 [ext_resource type="PackedScene" uid="uid://bdgbvgelsw5nb" path="res://pickable.tscn" id="30_sjjww"]
 [ext_resource type="PackedScene" uid="uid://dnaqjftmvvkwk" path="res://models/hgj2024/krzeslo/krzeslo.glb" id="30_wn5ue"]
@@ -108,6 +110,9 @@ size = Vector3(1, 9.75305, 6.11267)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xk15o"]
 size = Vector3(0.827026, 2.9541, 2.07043)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h3dkj"]
+size = Vector3(0.827026, 1.7251, 2.07043)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yrg3l"]
 size = Vector3(10, 0.5, 10)
@@ -255,6 +260,12 @@ visible = false
 visible = false
 
 [node name="WinGame" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("22_6ygjg")]
+visible = false
+
+[node name="Head2" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("28_qtv58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="Credits" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("29_rng24")]
 visible = false
 
 [node name="Player Audios" parent="Player" instance=ExtResource("24_2lgak")]
@@ -421,12 +432,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29323, 0, 2.33407)
 [node name="Mebel" parent="Room/StaticBody3D2" instance=ExtResource("28_ryayw")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 0)
 
+[node name="Credits" parent="Room/StaticBody3D2/Mebel" instance=ExtResource("30_sjjww")]
+transform = Transform3D(0.968683, 0, 0.248301, 0, 1, 0, -0.248301, 0, 0.968682, 0, 2.5615, 0.299819)
+
 [node name="Mebel2" parent="Room/StaticBody3D2" instance=ExtResource("28_ryayw")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0864868, 0.977051, 0.535217)
-shape = SubResource("BoxShape3D_xk15o")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0864868, 0.362549, 0.535217)
+shape = SubResource("BoxShape3D_h3dkj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Room/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0864868, 2.62522, 0.535217)
+shape = SubResource("BoxShape3D_h3dkj")
 
 [node name="Chest" parent="Room" instance=ExtResource("30_cyue7")]
 transform = Transform3D(0.991088, 0, 0.133208, 0, 1, 0, -0.133208, 0, 0.991088, -1.71793, 0, -0.24228)

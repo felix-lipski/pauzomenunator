@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://ifxmswsgndl5"]
+
+[ext_resource type="PackedScene" uid="uid://bxpukiqdj2436" path="res://models/Pauza/Panel_6/Panel_6.glb" id="1_51w0p"]
+
+[node name="Credits" type="Node3D"]
+
+[node name="Panel_6" parent="." instance=ExtResource("1_51w0p")]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0369081, 0.0488822, 0.000658866)
+pixel_size = 0.0004
+shaded = true
+text = "Graphics:
+Graphics:
+Sound:
+Porgramming:"
+horizontal_alignment = 2
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0189221, 0.0488822, 0.000658866)
+pixel_size = 0.0004
+shaded = true
+text = "Norbert Łuniewski 
+Adam Szymecki
+Łukasz Dubieniecki    
+Jan Lipski"
+horizontal_alignment = 0

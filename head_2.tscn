@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcs26lsqao1qe"]
+
+[ext_resource type="PackedScene" uid="uid://dflbfomvloana" path="res://models/Pauza/Panel_1/Panel_1.glb" id="1_vl1ib"]
+
+[sub_resource type="TextMesh" id="TextMesh_nm8d6"]
+text = "pauzomenunator"
+uppercase = true
+pixel_size = 0.002
+depth = 0.005
+
+[node name="Head2" type="Node3D"]
+
+[node name="Panel_1" parent="." instance=ExtResource("1_vl1ib")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0440576, 0)
+mesh = SubResource("TextMesh_nm8d6")
+skeleton = NodePath("../Label3D")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0440576, 0)
+pixel_size = 0.001
+shaded = true
+modulate = Color(0, 0, 0, 1)
+text = "pauzomenunator
+"
+uppercase = true
