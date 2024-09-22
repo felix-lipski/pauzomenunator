@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bwg0nqpnyewkp" path="res://wall.tscn" id="23_muivj"]
 [ext_resource type="PackedScene" uid="uid://crc4crbu2a7d8" path="res://addons/character-controller/example/main/audios/player_audios.tscn" id="24_2lgak"]
 [ext_resource type="PackedScene" uid="uid://bk4kojpks7tgl" path="res://modules/key_input_module.tscn" id="27_d4r4f"]
-[ext_resource type="PackedScene" uid="uid://1pn07bf5wsh1" path="res://number_clue.tscn" id="28_g0sv4"]
+[ext_resource type="PackedScene" path="res://number_clue.tscn" id="28_g0sv4"]
 [ext_resource type="PackedScene" uid="uid://cxg4u4qcopgy7" path="res://models/Pauza/Mebel/Mebel.glb" id="28_ryayw"]
 [ext_resource type="PackedScene" uid="uid://x35p8kexc3ip" path="res://models/Pauza/Lampa/Lampa1.glb" id="29_b48ri"]
 [ext_resource type="PackedScene" uid="uid://ca7xo151vkhx8" path="res://chest.tscn" id="30_cyue7"]

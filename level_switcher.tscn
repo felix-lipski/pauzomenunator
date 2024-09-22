@@ -1,9 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwkrlue3fh3uf"]
+[gd_scene load_steps=7 format=3 uid="uid://bwkrlue3fh3uf"]
 
 [ext_resource type="Script" path="res://level_switcher.gd" id="1_2t02e"]
 [ext_resource type="PackedScene" uid="uid://bwvxph837x6em" path="res://level1.tscn" id="2_ts0do"]
+[ext_resource type="BankAsset" uid="uid://bsxmyoo4tyseu" path="res://addons/FMOD/editor/resources/banks/{2e3c3481-2a65-4b32-8ed1-9462b3dbbd0b}.tres" id="3_ljcjg"]
+[ext_resource type="BankAsset" uid="uid://de8hfphnvcctn" path="res://addons/FMOD/editor/resources/banks/{b6211455-5b1e-0770-0898-1e9c4228bb93}.tres" id="4_hn1tv"]
+
+[sub_resource type="EventAsset" id="EventAsset_bq8cx"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/UI/MENU IN-OUT/UI_menu_open"
+guid = "{092ed129-a064-4581-9eb2-efc139a15e07}"
+name = "UI_menu_open"
+
+[sub_resource type="EventAsset" id="EventAsset_uxxrm"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/UI/MENU IN-OUT/UI_menu_close"
+guid = "{0ec63293-3eb2-437f-b342-4bc4c2653be7}"
+name = "UI_menu_close"
 
 [node name="LevelSwitcher" type="Node3D"]
 script = ExtResource("1_2t02e")
+ui_menu_open = SubResource("EventAsset_bq8cx")
+ui_menu_close = SubResource("EventAsset_uxxrm")
 
 [node name="World" parent="." instance=ExtResource("2_ts0do")]
+
+[node name="StudioBankLoader" type="StudioBankLoader" parent="."]
+load_on = 1
+num_banks = 2
+bank_0 = ExtResource("3_ljcjg")
+bank_1 = ExtResource("4_hn1tv")

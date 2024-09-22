@@ -2,6 +2,7 @@
 
 [ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="1_iul82"]
 [ext_resource type="Script" path="res://button.gd" id="2_6trpm"]
+[ext_resource type="EventAsset" uid="uid://de8uwlcv7q25v" path="res://addons/FMOD/editor/resources/events/{648a4af2-9c79-476c-a64c-03bf4e3b80b7}.tres" id="3_aho3c"]
 [ext_resource type="PackedScene" uid="uid://bhpo7uwxm015" path="res://button_binary.tscn" id="3_u23vm"]
 [ext_resource type="PackedScene" uid="uid://bpf21inwaen33" path="res://models/Pauza/Panel_3/Panel_3.glb" id="4_8w335"]
 
@@ -15,14 +16,6 @@ text = "Shadows"
 horizontal_alignment = 0
 pixel_size = 0.0012
 depth = 0.01
-
-[sub_resource type="EventAsset" id="EventAsset_03gid"]
-is_oneshot = true
-min_distance = 1.0
-max_distance = 20.0
-path = "event:/SFX/UI/Clicks/knob"
-guid = "{6395c575-a65c-4283-908a-add31b1fb409}"
-name = "knob"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w661h"]
 albedo_color = Color(0, 1, 0, 1)
@@ -50,7 +43,7 @@ skeleton = NodePath("../../..")
 [node name="Button" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.065, 0.038, 0)
 script = ExtResource("2_6trpm")
-buttonsound = SubResource("EventAsset_03gid")
+click_button = ExtResource("3_aho3c")
 
 [node name="Model" type="MeshInstance3D" parent="Button"]
 visible = false

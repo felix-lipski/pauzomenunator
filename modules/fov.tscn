@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bspdjl7v64ixs" path="res://models/Pauza/Tekstury Przycisk/Sufak.glb" id="3_8jvhv"]
 [ext_resource type="PackedScene" uid="uid://ddbnqtmv0en2m" path="res://models/Pauza/Panel_2/Panel_2.fbx" id="4_7tjoa"]
 [ext_resource type="PackedScene" uid="uid://ceedicxg3svv4" path="res://models/Pauza/Panel_2/Panel_2.glb" id="5_712fl"]
+[ext_resource type="EventAsset" uid="uid://cde7u2t051diq" path="res://addons/FMOD/editor/resources/events/{4a85fff1-6426-4126-8d26-88d03de8ce45}.tres" id="3_xnexr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xaofj"]
 albedo_color = Color(0.396889, 0.396889, 0.396889, 1)
@@ -46,6 +47,7 @@ skeleton = NodePath("../../..")
 [node name="Slider" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00425155, 0.0472608, 0.00906628)
 script = ExtResource("2_kghdc")
+fov = ExtResource("3_xnexr")
 
 [node name="Shape" type="CollisionShape3D" parent="Slider"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0.075, 0, 0)

@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://b5t8lq2rkoo4d"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/UI/MODULE/Clicks/UI_module_clicks_lever"
+guid = "{45fcaceb-0cfe-4013-af14-1ded9da32beb}"
+name = "UI_module_clicks_lever"

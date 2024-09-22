@@ -1,13 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://bk4kojpks7tgl"]
+[gd_scene load_steps=19 format=3 uid="uid://bk4kojpks7tgl"]
 
 [ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="1_q4gbv"]
 [ext_resource type="Script" path="res://modules/key_input_module.gd" id="1_vsdue"]
 [ext_resource type="Script" path="res://modules/key_input_group.gd" id="2_cbtv5"]
 [ext_resource type="Script" path="res://reset_key.gd" id="3_u5pov"]
-[ext_resource type="EventAsset" uid="uid://ccnoln6ybukq7" path="res://addons/FMOD/editor/resources/events/{6395c575-a65c-4283-908a-add31b1fb409}.tres" id="4_56ua7"]
+[ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{a089bb2a-c113-4eeb-9ac9-fee48fddf67a}.tres" id="5_a3eol"]
 [ext_resource type="Script" path="res://input_key.gd" id="5_ibvns"]
-[ext_resource type="PackedScene" path="res://models/Pauza/Panel_5/Panel_5.fbx" id="6_fvld1"]
+[ext_resource type="PackedScene" uid="uid://bxcx8tcc5of2c" path="res://models/Pauza/Panel_5/Panel_5.glb" id="6_fvld1"]
 [ext_resource type="PackedScene" uid="uid://v4b8kn8b36q8" path="res://models/Pauza/Tekstury Przycisk/Button_Czerwone.glb" id="6_xuoiw"]
+[ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{24beffeb-1cd9-4388-a9dd-8e9cd8ae52ac}.tres" id="7_dxjqr"]
 [ext_resource type="PackedScene" uid="uid://bpf21inwaen33" path="res://models/Pauza/Panel_3/Panel_3.glb" id="8_b0bwq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w0y3"]
@@ -61,7 +62,7 @@ action_name = "move_backward"
 [node name="Reset" type="Area3D" parent="KeyInputGroup"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, 0)
 script = ExtResource("3_u5pov")
-buttonsound = ExtResource("4_56ua7")
+buttonsound = ExtResource("5_a3eol")
 
 [node name="Button_Czerwone" parent="KeyInputGroup/Reset" instance=ExtResource("6_xuoiw")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.0138958)
@@ -84,6 +85,7 @@ uppercase = true
 [node name="Key" type="Area3D" parent="KeyInputGroup"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, 0, 0)
 script = ExtResource("5_ibvns")
+key_selected = ExtResource("7_dxjqr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KeyInputGroup/Key"]
 shape = SubResource("BoxShape3D_2t1vn")

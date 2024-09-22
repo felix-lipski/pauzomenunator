@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://dsb0u7tppghak"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/UI/MENU IN-OUT/UI_menu_close"
+guid = "{0ec63293-3eb2-437f-b342-4bc4c2653be7}"
+name = "UI_menu_close"

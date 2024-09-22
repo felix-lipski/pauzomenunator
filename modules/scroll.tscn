@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlnknjjr20uk2"]
+[gd_scene load_steps=12 format=3 uid="uid://dlnknjjr20uk2"]
 
 [ext_resource type="Script" path="res://scroll.gd" id="1_6iewp"]
 [ext_resource type="PackedScene" uid="uid://dklcnarh1xtm2" path="res://models/Pauza/Panel_Boczny/Panel_Boczny.glb" id="1_pg4bl"]
+[ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{45fcaceb-0cfe-4013-af14-1ded9da32beb}.tres" id="2_25nhg"]
 [ext_resource type="PackedScene" uid="uid://dghosr7jba4g8" path="res://models/Pauza/Tekstury Przycisk/Strzałka.glb" id="3_sm3x5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ih24"]
@@ -59,6 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07, 0.00621957)
 [node name="Down" type="Area3D" parent="Buttons"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.0128992, 0)
 script = ExtResource("1_6iewp")
+scroll_lever = ExtResource("2_25nhg")
 down = true
 
 [node name="Strzałka" parent="Buttons/Down" instance=ExtResource("3_sm3x5")]
@@ -75,6 +77,7 @@ skeleton = NodePath("")
 [node name="Up" type="Area3D" parent="Buttons"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.0128992, 0)
 script = ExtResource("1_6iewp")
+scroll_lever = ExtResource("2_25nhg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Up"]
 shape = SubResource("BoxShape3D_lakiq")

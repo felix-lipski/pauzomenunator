@@ -1,5 +1,5 @@
 extends Area3D
-
+@export var key_selected: EventAsset
 var waiting = false
 
 func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
@@ -13,6 +13,7 @@ func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, 
 
 func _input(event):
 	if event is InputEventKey and waiting:
+		FMODRuntime.play_one_shot(key_selected, self) 
 		print(event.as_text_keycode())
 		InputMap.action_add_event(get_parent().action_name, event)
 		$Model/Label3D.text = event.as_text_keycode()

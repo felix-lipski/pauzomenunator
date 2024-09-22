@@ -1,4 +1,6 @@
 extends Node3D
+@export var ui_menu_open: EventAsset
+@export var ui_menu_close: EventAsset
 
 #var level = "level1"
 var level = 1
@@ -40,22 +42,27 @@ var paused = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	$World/Player/Head/PauseMenu.hide()
 	#pass # Replace with function body.
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if paused:
+			FMODRuntime.play_one_shot(ui_menu_close, self) 
 			$World/Player/Head/PauseMenu.hide()
 			Engine.time_scale = 1
 			paused = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
+			FMODRuntime.play_one_shot(ui_menu_open, self) 
 			paused = true
 			$World/Player/Head/PauseMenu.show()
 			Engine.time_scale = 0
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
+					
 	pass
+	

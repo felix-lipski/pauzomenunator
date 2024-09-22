@@ -1,5 +1,5 @@
 extends Area3D
-@export var buttonsound: EventAsset
+@export var click_button: EventAsset
 var toggled = true
 
 func on_press(toggled):
@@ -10,7 +10,7 @@ func on_press(toggled):
 
 func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if (event.is_pressed()):
-		FMODRuntime.play_one_shot(buttonsound, self)
+		FMODRuntime.play_one_shot(click_button, self)
 		toggled = !toggled
 		#get_node("/root/World/Sun").shadow_enabled = toggled
 		on_press(toggled)
