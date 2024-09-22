@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://modules/key_input_module.gd" id="1_vsdue"]
 [ext_resource type="Script" path="res://modules/key_input_group.gd" id="2_cbtv5"]
 [ext_resource type="Script" path="res://reset_key.gd" id="3_u5pov"]
-[ext_resource type="EventAsset" uid="uid://bx65qjdlg8njd" path="res://addons/FMOD/editor/resources/events/{a089bb2a-c113-4eeb-9ac9-fee48fddf67a}.tres" id="5_6d5uo"]
+[ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{a089bb2a-c113-4eeb-9ac9-fee48fddf67a}.tres" id="5_6d5uo"]
 [ext_resource type="Script" path="res://input_key.gd" id="5_ibvns"]
 [ext_resource type="PackedScene" uid="uid://bxcx8tcc5of2c" path="res://models/Pauza/Panel_5/Panel_5.glb" id="6_fvld1"]
 [ext_resource type="PackedScene" uid="uid://v4b8kn8b36q8" path="res://models/Pauza/Tekstury Przycisk/Button_Czerwone.glb" id="6_xuoiw"]
-[ext_resource type="EventAsset" uid="uid://c538t7on5a3ua" path="res://addons/FMOD/editor/resources/events/{24beffeb-1cd9-4388-a9dd-8e9cd8ae52ac}.tres" id="7_dxjqr"]
+[ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{24beffeb-1cd9-4388-a9dd-8e9cd8ae52ac}.tres" id="7_dxjqr"]
 [ext_resource type="PackedScene" uid="uid://bpf21inwaen33" path="res://models/Pauza/Panel_3/Panel_3.glb" id="8_b0bwq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w0y3"]
