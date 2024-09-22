@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://cjaf62rse1fyk"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/UI/MODULE/Clicks/UI_click_lvl_select"
+guid = "{3f027bd0-1920-46ce-87ff-6942217f899f}"
+name = "UI_click_lvl_select"

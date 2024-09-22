@@ -1,4 +1,5 @@
 extends Area3D
+@export var ui_click_lvl_select: EventAsset
 var next_scene_path : String = "res://level2.tscn"
 func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event.is_pressed():
@@ -8,6 +9,7 @@ func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, 
 		#var current_scene = get_tree().current_scene
 		#player.get_parent().remove_child(player)
 		#current_scene.add_child(player)
+		FMODRuntime.play_one_shot(ui_click_lvl_select, self)
 		var level_switcher = get_node("/root/LevelSwitcher")
 		if level_switcher.level == 1:
 			level_switcher.switch_level(2)

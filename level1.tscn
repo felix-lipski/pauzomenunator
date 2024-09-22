@@ -1,14 +1,18 @@
-[gd_scene load_steps=63 format=3 uid="uid://bwvxph837x6em"]
+[gd_scene load_steps=67 format=3 uid="uid://bwvxph837x6em"]
 
 [ext_resource type="Script" path="res://level1.gd" id="1_4dvhk"]
 [ext_resource type="Script" path="res://addons/character-controller/example/main/player.gd" id="4_4l76r"]
 [ext_resource type="Script" path="res://walk_timer.gd" id="5_1lvjv"]
+[ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{359e8faa-dcd5-4f5b-bf7e-bff840004884}.tres" id="5_n0fcn"]
+[ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{73ceae07-9866-4ae8-aa89-2137e428e284}.tres" id="5_ochjx"]
 [ext_resource type="Environment" uid="uid://b3cn01u84faiy" path="res://addons/character-controller/example/main/underwater.tres" id="5_qo3ji"]
 [ext_resource type="Script" path="res://addons/character-controller/abilities/walk_ability_3d.gd" id="6_6on16"]
 [ext_resource type="Script" path="res://addons/character-controller/abilities/sprint_ability_3d.gd" id="7_gmw7m"]
 [ext_resource type="Script" path="res://addons/character-controller/abilities/crouch_ability_3d.gd" id="8_l87r6"]
+[ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{041c2f02-998d-42dc-ba80-10949587c753}.tres" id="9_3c0d8"]
 [ext_resource type="Script" path="res://addons/character-controller/abilities/jump_ability_3d.gd" id="9_tmq3f"]
 [ext_resource type="Script" path="res://addons/character-controller/abilities/fly_ability_3d.gd" id="10_0seqs"]
+[ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{f05dd87f-e182-42f8-be16-ee3cd0086e30}.tres" id="11_rgdxb"]
 [ext_resource type="Script" path="res://addons/character-controller/abilities/swim_ability_3d.gd" id="11_u3voq"]
 [ext_resource type="Script" path="res://addons/character-controller/fps/head_movement_3d.gd" id="12_i180w"]
 [ext_resource type="PackedScene" uid="uid://dlnknjjr20uk2" path="res://modules/scroll.tscn" id="13_2r6yg"]
@@ -20,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b1ia2m7q82r5p" path="res://modules/fov.tscn" id="17_lcos1"]
 [ext_resource type="PackedScene" uid="uid://c46v6gvwxgsp3" path="res://modules/sensitivity.tscn" id="18_ap3io"]
 [ext_resource type="PackedScene" uid="uid://lhtrts4w5uam" path="res://modules/shadows.tscn" id="19_wjcmb"]
-[ext_resource type="PackedScene" uid="uid://dqkcy7qm7gggb" path="res://language.tscn" id="20_xe13v"]
+[ext_resource type="PackedScene" path="res://language.tscn" id="20_xe13v"]
 [ext_resource type="PackedScene" uid="uid://4hjhkcdrftsc" path="res://models/hgj2024/sciana zwykla/sciana_zwykla.glb" id="21_24sf0"]
 [ext_resource type="PackedScene" uid="uid://3s3btivpo2gj" path="res://win_game.tscn" id="22_6ygjg"]
 [ext_resource type="PackedScene" uid="uid://dawk3o1pjoo1d" path="res://models/hgj2024/sciana dziura/sciana_dziura.glb" id="22_35x5a"]
@@ -135,6 +139,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.039)
 floor_snap_length = 0.5
 script = ExtResource("4_4l76r")
 underwater_env = ExtResource("5_qo3ji")
+steps_lvl_1 = ExtResource("5_n0fcn")
+steps_lvl_2 = ExtResource("5_ochjx")
 mouse_sensitivity = 0.0
 step_bob_enabled = false
 gravity_multiplier = 2.0
@@ -150,6 +156,8 @@ target_position = Vector3(0, 1, 0)
 
 [node name="Walk Ability 3D" type="Node3D" parent="Player"]
 script = ExtResource("6_6on16")
+steps_lvl_1 = ExtResource("5_n0fcn")
+steps_lvl_2 = ExtResource("5_ochjx")
 
 [node name="WalkTimer" type="Timer" parent="Player/Walk Ability 3D"]
 wait_time = 0.4
@@ -160,9 +168,11 @@ script = ExtResource("7_gmw7m")
 
 [node name="Crouch Ability 3D" type="Node3D" parent="Player"]
 script = ExtResource("8_l87r6")
+sfx_crouch = ExtResource("9_3c0d8")
 
 [node name="Jump Ability 3D" type="Node3D" parent="Player"]
 script = ExtResource("9_tmq3f")
+sfx_jump = ExtResource("11_rgdxb")
 
 [node name="Fly Ability 3D" type="Node3D" parent="Player"]
 script = ExtResource("10_0seqs")

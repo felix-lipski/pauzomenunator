@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6qf4ccnbst7s"]
+[gd_scene load_steps=11 format=3 uid="uid://c6qf4ccnbst7s"]
 
 [ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="1_75e7q"]
 [ext_resource type="PackedScene" uid="uid://bpf21inwaen33" path="res://models/Pauza/Panel_3/Panel_3.glb" id="1_r1n5v"]
@@ -14,6 +14,14 @@ text = "Level"
 horizontal_alignment = 0
 pixel_size = 0.0015
 depth = 0.01
+
+[sub_resource type="EventAsset" id="EventAsset_55pkw"]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/UI/MODULE/Clicks/UI_click_lvl_select"
+guid = "{3f027bd0-1920-46ce-87ff-6942217f899f}"
+name = "UI_click_lvl_select"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lakiq"]
 size = Vector3(0.03, 0.03, 0.03)
@@ -43,6 +51,7 @@ skeleton = NodePath("../../..")
 [node name="LevelButton" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0645966, 0.0373655, 0)
 script = ExtResource("2_bpdvc")
+ui_click_lvl_select = SubResource("EventAsset_55pkw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelButton"]
 shape = SubResource("BoxShape3D_lakiq")

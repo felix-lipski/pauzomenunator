@@ -3,3 +3,5 @@
 /android/
 /models/**/*.png
 /models/**/*.png.import
+/models/**/*.fbx
+/models/**/*.fbx.import

@@ -2,7 +2,7 @@ extends Node3D
 
 @export var initial = [0,0,0]
 @export var password = [0,0,0]
-
+@export var chest_unlocked: EventAsset
 var locked = true
 
 @export var arabic = false
@@ -24,6 +24,5 @@ func _process(delta: float) -> void:
 	if $Password/Key1.number == password[0] and $Password/Key2.number == password[1] and $Password/Key3.number == password[2]:
 		$Lid.rotation.x = -deg_to_rad(20)
 		if locked:
-			print("lkjkj")
-			# tutaj dajesz dźwiek
+			FMODRuntime.play_one_shot(chest_unlocked, self)
 			locked = false

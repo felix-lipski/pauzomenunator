@@ -1,0 +1,46 @@
+[gd_resource type="EventAsset" load_steps=7 format=3 uid="uid://cygruwskuivus"]
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_ID" id="FMOD_STUDIO_PARAMETER_ID_fiuds"]
+data1 = 2174773109
+data2 = 777534335
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_DESCRIPTION" id="FMOD_STUDIO_PARAMETER_DESCRIPTION_traob"]
+name = "CONCRETE"
+id = SubResource("FMOD_STUDIO_PARAMETER_ID_fiuds")
+maximum = 1.0
+guid = "{ccbded01-2fe0-4b61-a532-1711f2ece5e5}"
+
+[sub_resource type="ParameterAsset" id="ParameterAsset_b575t"]
+parameter_description = SubResource("FMOD_STUDIO_PARAMETER_DESCRIPTION_traob")
+path = "parameter:/CONCRETE"
+guid = "{ccbded01-2fe0-4b61-a532-1711f2ece5e5}"
+name = "CONCRETE"
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_ID" id="FMOD_STUDIO_PARAMETER_ID_fs5lu"]
+data1 = 4123981892
+data2 = 3290965736
+
+[sub_resource type="FMOD_STUDIO_PARAMETER_DESCRIPTION" id="FMOD_STUDIO_PARAMETER_DESCRIPTION_uv6ni"]
+name = "CARPET"
+id = SubResource("FMOD_STUDIO_PARAMETER_ID_fs5lu")
+maximum = 1.0
+guid = "{f2937f70-8a8b-41e5-be60-0a0d79cf0a47}"
+
+[sub_resource type="ParameterAsset" id="ParameterAsset_3txoj"]
+parameter_description = SubResource("FMOD_STUDIO_PARAMETER_DESCRIPTION_uv6ni")
+path = "parameter:/CARPET"
+guid = "{f2937f70-8a8b-41e5-be60-0a0d79cf0a47}"
+name = "CARPET"
+
+[resource]
+is_3d = true
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+parameters = {
+"{ccbded01-2fe0-4b61-a532-1711f2ece5e5}": SubResource("ParameterAsset_b575t"),
+"{f2937f70-8a8b-41e5-be60-0a0d79cf0a47}": SubResource("ParameterAsset_3txoj")
+}
+path = "event:/Footsteps/STEPS 2"
+guid = "{b2394e3e-2753-4bc5-821c-3ba4981df60b}"
+name = "STEPS 2"
