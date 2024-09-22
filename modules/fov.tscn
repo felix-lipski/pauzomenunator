@@ -3,9 +3,8 @@
 [ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="1_ttlag"]
 [ext_resource type="Script" path="res://fov_slider.gd" id="2_kghdc"]
 [ext_resource type="PackedScene" uid="uid://bspdjl7v64ixs" path="res://models/Pauza/Tekstury Przycisk/Sufak.glb" id="3_8jvhv"]
-[ext_resource type="PackedScene" uid="uid://ddbnqtmv0en2m" path="res://models/Pauza/Panel_2/Panel_2.fbx" id="4_7tjoa"]
+[ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{4a85fff1-6426-4126-8d26-88d03de8ce45}.tres" id="3_xnexr"]
 [ext_resource type="PackedScene" uid="uid://ceedicxg3svv4" path="res://models/Pauza/Panel_2/Panel_2.glb" id="5_712fl"]
-[ext_resource type="EventAsset" uid="uid://cde7u2t051diq" path="res://addons/FMOD/editor/resources/events/{4a85fff1-6426-4126-8d26-88d03de8ce45}.tres" id="3_xnexr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xaofj"]
 albedo_color = Color(0.396889, 0.396889, 0.396889, 1)
@@ -66,8 +65,5 @@ transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0.072784
 visible = false
 mesh = SubResource("BoxMesh_c5pmp")
 skeleton = NodePath("")
-
-[node name="Panel_2" parent="." instance=ExtResource("4_7tjoa")]
-visible = false
 
 [node name="Panel_3" parent="." instance=ExtResource("5_712fl")]

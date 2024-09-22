@@ -1,7 +1,8 @@
-[gd_scene load_steps=50 format=3 uid="uid://bwvxph837x6em"]
+[gd_scene load_steps=63 format=3 uid="uid://bwvxph837x6em"]
 
 [ext_resource type="Script" path="res://level1.gd" id="1_4dvhk"]
 [ext_resource type="Script" path="res://addons/character-controller/example/main/player.gd" id="4_4l76r"]
+[ext_resource type="Script" path="res://walk_timer.gd" id="5_1lvjv"]
 [ext_resource type="Environment" uid="uid://b3cn01u84faiy" path="res://addons/character-controller/example/main/underwater.tres" id="5_qo3ji"]
 [ext_resource type="Script" path="res://addons/character-controller/abilities/walk_ability_3d.gd" id="6_6on16"]
 [ext_resource type="Script" path="res://addons/character-controller/abilities/sprint_ability_3d.gd" id="7_gmw7m"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dlnknjjr20uk2" path="res://modules/scroll.tscn" id="13_2r6yg"]
 [ext_resource type="Script" path="res://addons/character-controller/fps/bob/head_bob.gd" id="13_7k471"]
 [ext_resource type="Curve" path="res://addons/character-controller/fps/bob/bob_curve.tres" id="14_ouqm6"]
+[ext_resource type="PackedScene" uid="uid://dflbfomvloana" path="res://models/Pauza/Panel_1/Panel_1.glb" id="15_kg6v1"]
 [ext_resource type="PackedScene" uid="uid://c6qf4ccnbst7s" path="res://modules/level.tscn" id="16_fytw8"]
 [ext_resource type="Script" path="res://modules.gd" id="16_yhpx2"]
 [ext_resource type="PackedScene" uid="uid://b1ia2m7q82r5p" path="res://modules/fov.tscn" id="17_lcos1"]
@@ -20,16 +22,21 @@
 [ext_resource type="PackedScene" uid="uid://lhtrts4w5uam" path="res://modules/shadows.tscn" id="19_wjcmb"]
 [ext_resource type="PackedScene" uid="uid://dqkcy7qm7gggb" path="res://language.tscn" id="20_xe13v"]
 [ext_resource type="PackedScene" uid="uid://4hjhkcdrftsc" path="res://models/hgj2024/sciana zwykla/sciana_zwykla.glb" id="21_24sf0"]
+[ext_resource type="PackedScene" uid="uid://3s3btivpo2gj" path="res://win_game.tscn" id="22_6ygjg"]
 [ext_resource type="PackedScene" uid="uid://dawk3o1pjoo1d" path="res://models/hgj2024/sciana dziura/sciana_dziura.glb" id="22_35x5a"]
 [ext_resource type="PackedScene" uid="uid://0ejjpsi56w62" path="res://models/hgj2024/workbench/WORKBENCH.glb" id="22_hoe6t"]
 [ext_resource type="PackedScene" uid="uid://bwg0nqpnyewkp" path="res://wall.tscn" id="23_muivj"]
 [ext_resource type="PackedScene" uid="uid://crc4crbu2a7d8" path="res://addons/character-controller/example/main/audios/player_audios.tscn" id="24_2lgak"]
 [ext_resource type="PackedScene" uid="uid://bk4kojpks7tgl" path="res://modules/key_input_module.tscn" id="27_d4r4f"]
+[ext_resource type="PackedScene" uid="uid://bowcaum5vux4f" path="res://models/hgj2024/sciana dzwi/sciana_dzwi.glb" id="27_wwynl"]
 [ext_resource type="PackedScene" path="res://number_clue.tscn" id="28_g0sv4"]
 [ext_resource type="PackedScene" uid="uid://cxg4u4qcopgy7" path="res://models/Pauza/Mebel/Mebel.glb" id="28_ryayw"]
-[ext_resource type="PackedScene" uid="uid://x35p8kexc3ip" path="res://models/Pauza/Lampa/Lampa1.glb" id="29_b48ri"]
+[ext_resource type="PackedScene" uid="uid://ex8cj3d42x5a" path="res://lamp.tscn" id="29_gohn0"]
 [ext_resource type="PackedScene" uid="uid://ca7xo151vkhx8" path="res://chest.tscn" id="30_cyue7"]
 [ext_resource type="PackedScene" uid="uid://bdgbvgelsw5nb" path="res://pickable.tscn" id="30_sjjww"]
+[ext_resource type="PackedScene" uid="uid://dnaqjftmvvkwk" path="res://models/hgj2024/krzeslo/krzeslo.glb" id="30_wn5ue"]
+[ext_resource type="PackedScene" uid="uid://6mmpqxfxwjgo" path="res://models/Pauza/Plastkowe pudełko/Plastikowe_Pudełko.glb" id="31_otk33"]
+[ext_resource type="PackedScene" uid="uid://d1dgpbejg7xs8" path="res://models/hgj2024/sciana okno/sciana_okno.glb" id="32_q54hq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jcbg5"]
 
@@ -92,13 +99,30 @@ size = Vector3(2, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_aom5b"]
 size = Vector3(2, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_t4kvw"]
+size = Vector3(1, 9.75305, 6.11267)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_xk15o"]
 size = Vector3(0.827026, 2.9541, 2.07043)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yrg3l"]
 size = Vector3(10, 0.5, 10)
 
-[node name="World2" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6kvw"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_42qh4"]
+size = Vector2(10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_npgqv"]
+size = Vector3(6.5686, 10.872, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr7gk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xeb80"]
+material = SubResource("StandardMaterial3D_wr7gk")
+size = Vector3(1, 5, 5)
+
+[node name="World" type="Node3D"]
 script = ExtResource("1_4dvhk")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
@@ -126,6 +150,10 @@ target_position = Vector3(0, 1, 0)
 
 [node name="Walk Ability 3D" type="Node3D" parent="Player"]
 script = ExtResource("6_6on16")
+
+[node name="WalkTimer" type="Timer" parent="Player/Walk Ability 3D"]
+wait_time = 0.4
+script = ExtResource("5_1lvjv")
 
 [node name="Sprint Ability 3D" type="Node3D" parent="Player"]
 script = ExtResource("7_gmw7m")
@@ -179,6 +207,10 @@ visible = false
 [node name="Modules" type="Node3D" parent="Player/Head/PauseMenu"]
 script = ExtResource("16_yhpx2")
 
+[node name="Panel_1" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("15_kg6v1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+visible = false
+
 [node name="MoveBackward" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("27_d4r4f")]
 visible = false
 
@@ -210,6 +242,9 @@ visible = false
 visible = false
 
 [node name="Language" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("20_xe13v")]
+visible = false
+
+[node name="WinGame" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("22_6ygjg")]
 visible = false
 
 [node name="Player Audios" parent="Player" instance=ExtResource("24_2lgak")]
@@ -274,13 +309,13 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.6724
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.92709, 0, -4.02975)
 
 [node name="Wall2" parent="Room" instance=ExtResource("23_muivj")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.67248, 0, 0.451767)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.67248, 0, 1.71991)
 
 [node name="Wall6" parent="Room" instance=ExtResource("23_muivj")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 4, 0, 4)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 6.17933, 0, 4)
 
 [node name="Wall7" parent="Room" instance=ExtResource("23_muivj")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 2, 0, 4)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.148602, 0, 4)
 
 [node name="Wall3" parent="Room" instance=ExtResource("23_muivj")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1.61147, 0, -1.03757)
@@ -338,14 +373,23 @@ transform = Transform3D(-0.941305, 0, -0.337555, 0, 1, 0, 0.337555, 0, -0.941305
 [node name="Language" parent="Room" instance=ExtResource("30_sjjww")]
 transform = Transform3D(0.403979, 0.606072, -0.685184, -0.862195, 0.502537, -0.06383, 0.305645, 0.61655, 0.725567, -2.36808, 0.259517, 0.189171)
 
+[node name="sciana_dzwi" parent="Room" instance=ExtResource("27_wwynl")]
+transform = Transform3D(3.93403e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.93403e-08, 0.482047, 0.0297517, 4.08659)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Room/sciana_dzwi"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/sciana_dzwi/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.37653, 0.274109)
+shape = SubResource("BoxShape3D_t4kvw")
+
 [node name="MoveJump" parent="Room" instance=ExtResource("30_sjjww")]
 transform = Transform3D(-2.29691e-08, -3.71901e-08, -0.999999, -0.85081, 0.525472, 0, 0.525471, 0.850811, -4.37113e-08, 2.87257, 0.248324, -3.70305)
 
 [node name="Chest2" parent="Room" instance=ExtResource("30_cyue7")]
-transform = Transform3D(-0.21862, 0, 0.97581, 0, 1, 0, -0.97581, 0, -0.21862, -1.85482, -9.53674e-07, 3.26699)
-password = [2, 7, 3]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.05803, -9.53674e-07, 3.5186)
+password = [4, 0, 4]
 
-[node name="MoveForward" parent="Room/Chest2" instance=ExtResource("30_sjjww")]
+[node name="WinGame" parent="Room/Chest2" instance=ExtResource("30_sjjww")]
 transform = Transform3D(-0.996335, 0, 0.0855211, 0, 1, 0, -0.0855211, 0, -0.996335, 0.0204918, 0.23049, -0.0928496)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Room"]
@@ -358,6 +402,19 @@ transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0864868, 0.977051, 0.535217)
+shape = SubResource("BoxShape3D_xk15o")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29323, 0, 2.33407)
+
+[node name="Mebel" parent="Room/StaticBody3D2" instance=ExtResource("28_ryayw")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 0)
+
+[node name="Mebel2" parent="Room/StaticBody3D2" instance=ExtResource("28_ryayw")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0864868, 0.977051, 0.535217)
 shape = SubResource("BoxShape3D_xk15o")
 
@@ -386,29 +443,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Ceiling"]
 shape = SubResource("BoxShape3D_yrg3l")
 
-[node name="Lamp" type="OmniLight3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 2.77021, 0)
+material_override = SubResource("StandardMaterial3D_o6kvw")
+mesh = SubResource("PlaneMesh_42qh4")
+
+[node name="krzeslo" parent="Room" instance=ExtResource("30_wn5ue")]
+transform = Transform3D(-0.1214, 0, 0.15894, 0, 0.2, 0, -0.15894, 0, -0.1214, -0.232222, 0.17603, 1.8851)
+
+[node name="Plastikowe_Pudełko" parent="Room" instance=ExtResource("31_otk33")]
+transform = Transform3D(-0.281655, 0, 0.959516, 0, 1, 0, -0.959516, 0, -0.281655, -2.25028, 1.84971, 2.13153)
+
+[node name="Plastikowe_Pudełko2" parent="Room" instance=ExtResource("31_otk33")]
+transform = Transform3D(0.0708011, 0, 0.99749, 0, 1, 0, -0.99749, 0, 0.0708011, 1.94947, 0.713901, -3.22697)
+
+[node name="Plastikowe_Pudełko3" parent="Room" instance=ExtResource("31_otk33")]
+transform = Transform3D(-0.286976, 0, 0.957938, 0, 1, 0, -0.957938, 0, -0.286976, 1.94947, 0.713901, -2.92899)
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Room"]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 3.75114, 1.40849, 1.09132)
+
+[node name="sciana_okno" parent="Room/StaticBody3D3" instance=ExtResource("32_q54hq")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/StaticBody3D3"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -0.213501, -0.483978, 0)
+shape = SubResource("BoxShape3D_npgqv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/StaticBody3D3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.96046e-08, 0, -0.817931)
+mesh = SubResource("BoxMesh_xeb80")
+
+[node name="Lamp" parent="." instance=ExtResource("29_gohn0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -1)
-shadow_enabled = true
-omni_range = 10.0
 
-[node name="Lampa1" parent="." instance=ExtResource("29_b48ri")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 3, 2, -1)
-
-[node name="Lampa2" parent="." instance=ExtResource("29_b48ri")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1, 2, 0)
-
-[node name="Lampa3" parent="." instance=ExtResource("29_b48ri")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 2, 2)
-
-[node name="Lamp2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
-shadow_enabled = true
-omni_range = 10.0
-
-[node name="Lamp3" type="OmniLight3D" parent="."]
+[node name="Lamp4" parent="." instance=ExtResource("29_gohn0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0)
-shadow_enabled = true
-omni_range = 10.0
+
+[node name="Lamp5" parent="." instance=ExtResource("29_gohn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
 
 [node name="NumberClue" parent="." instance=ExtResource("28_g0sv4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97583, 1.44714, -4.84404)

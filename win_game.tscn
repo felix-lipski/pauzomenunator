@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://3s3btivpo2gj"]
+
+[ext_resource type="PackedScene" uid="uid://bpf21inwaen33" path="res://models/Pauza/Panel_3/Panel_3.glb" id="1_k1pow"]
+[ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="2_pedr2"]
+[ext_resource type="Script" path="res://win_button.gd" id="3_dg3qo"]
+[ext_resource type="PackedScene" uid="uid://c3n1j5fw1fwmi" path="res://models/Pauza/Tekstury Przycisk/Button_Niebieski.glb" id="4_spo7s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4sux"]
+albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_wsn76"]
+material = SubResource("StandardMaterial3D_t4sux")
+text = "Win"
+horizontal_alignment = 0
+pixel_size = 0.0015
+depth = 0.01
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lakiq"]
+size = Vector3(0.03, 0.03, 0.03)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rt8jq"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vavrf"]
+material = SubResource("StandardMaterial3D_rt8jq")
+size = Vector3(0.03, 0.03, 0.03)
+
+[node name="WinGame" type="Node3D"]
+
+[node name="Panel_3" parent="." instance=ExtResource("1_k1pow")]
+
+[node name="Chasis" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+visible = false
+mesh = ExtResource("2_pedr2")
+skeleton = NodePath("")
+
+[node name="Label" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114131, 0.0441698, 0)
+mesh = SubResource("TextMesh_wsn76")
+skeleton = NodePath("../../..")
+
+[node name="WinButton" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0645966, 0.0373655, 0)
+script = ExtResource("3_dg3qo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WinButton"]
+shape = SubResource("BoxShape3D_lakiq")
+
+[node name="Model" type="MeshInstance3D" parent="WinButton"]
+visible = false
+mesh = SubResource("BoxMesh_vavrf")
+skeleton = NodePath("")
+
+[node name="Button_Niebieski" parent="WinButton" instance=ExtResource("4_spo7s")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.00355624, 0.0159286)

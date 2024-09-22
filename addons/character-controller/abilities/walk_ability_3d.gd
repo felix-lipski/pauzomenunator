@@ -12,6 +12,8 @@ class_name WalkAbility3D
 ## Sets control in the air
 @export_range(0.0, 1.0, 0.05) var air_control := 0.3
 
+@onready var walk_timer = $WalkTimer
+
 
 ## Takes direction of movement from input and turns it into horizontal velocity
 func apply(velocity: Vector3, speed : float, is_on_floor : bool, direction : Vector3, delta: float) -> Vector3:
@@ -30,6 +32,14 @@ func apply(velocity: Vector3, speed : float, is_on_floor : bool, direction : Vec
 	else:
 		temp_accel = deceleration
 	
+	if is_on_floor and direction.length() > 0:
+		if walk_timer.is_stopped():
+			_on_WalkTimer_timeout()
+			walk_timer.start()
+	else:
+		if not walk_timer.is_stopped():
+			walk_timer.stop()  
+	
 	if not is_on_floor:
 		temp_accel *= air_control
 	
@@ -38,3 +48,9 @@ func apply(velocity: Vector3, speed : float, is_on_floor : bool, direction : Vec
 	velocity.x = temp_vel.x
 	velocity.z = temp_vel.z
 	return velocity
+
+func _on_WalkTimer_timeout():
+	print("*step sound*")
+
+func _ready():
+	walk_timer.timeout.connect(_on_WalkTimer_timeout)

@@ -1,12 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://s480gw6j3vrx"]
+[gd_scene load_steps=20 format=3 uid="uid://s480gw6j3vrx"]
 
+[ext_resource type="PackedScene" uid="uid://nf36qqggcoh1" path="res://models/hgj2024/dach_podl/dach_podl.glb" id="1_kut48"]
 [ext_resource type="PackedScene" uid="uid://bdgbvgelsw5nb" path="res://pickable.tscn" id="2_52e0d"]
 [ext_resource type="Script" path="res://number_clue.gd" id="3_8b3gx"]
 [ext_resource type="PackedScene" uid="uid://ca7xo151vkhx8" path="res://chest.tscn" id="3_tm2ny"]
 [ext_resource type="PackedScene" uid="uid://boaoitjfsqw7" path="res://models/Pauza/Block/Block.glb" id="4_pgev4"]
 [ext_resource type="PackedScene" uid="uid://c30jy76g4wtb4" path="res://pickable_scroll.tscn" id="4_yuqok"]
+[ext_resource type="PackedScene" path="res://number_clue.tscn" id="5_ampdl"]
 [ext_resource type="PackedScene" uid="uid://boylom22ykm26" path="res://models/hgj2024/kómin/komin.glb" id="6_3r6wd"]
 [ext_resource type="PackedScene" uid="uid://cuar66frhqa7x" path="res://roof_wall.tscn" id="6_sxlv1"]
+[ext_resource type="PackedScene" uid="uid://btl3rg4rk7yid" path="res://fence.tscn" id="7_h5nh2"]
+[ext_resource type="PackedScene" uid="uid://cu1q0dwhikhnd" path="res://worek.tscn" id="11_633sr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6283e"]
 
@@ -41,16 +45,6 @@ size = Vector3(0.8, 2, 0.8)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6sd3a"]
 size = Vector3(1.1, 3, 1.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ony3y"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_iu62p"]
-material = SubResource("StandardMaterial3D_ony3y")
-size = Vector3(0.1, 3, 4)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_blajh"]
-size = Vector3(0.25, 3, 4)
-
 [node name="World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -70,11 +64,19 @@ shape = SubResource("BoxShape3D_ch1a4")
 
 [node name="Model" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+visible = false
 mesh = SubResource("BoxMesh_0gj2w")
 skeleton = NodePath("../../..")
 
+[node name="dach_podl" parent="Floor" instance=ExtResource("1_kut48")]
+
 [node name="Chest" parent="." instance=ExtResource("3_tm2ny")]
 transform = Transform3D(0.475778, 0, -0.879566, 0, 1, 0, 0.879566, 0, 0.475778, -1.14715, 4.76837e-07, -4.64639)
+password = [9, 0, 5]
+arabic = true
+
+[node name="Sensitivity" parent="Chest" instance=ExtResource("2_52e0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134143, 0)
 
 [node name="Blocks" type="Node3D" parent="."]
 
@@ -106,7 +108,7 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -27.182, -19, 11.616)
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -27.182, -19, 30.616)
 
 [node name="Block4" parent="Blocks" instance=ExtResource("4_pgev4")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 28.818, -21, 23.616)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 30.818, -21, 23.616)
 
 [node name="Block2" parent="Blocks" instance=ExtResource("4_pgev4")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 3.81805, -22, -47.384)
@@ -136,8 +138,10 @@ transform = Transform3D(-12, 0, 1.19209e-06, 0, 12, 0, -1.19209e-06, 0, -12, 16.
 transform = Transform3D(-13, 0, -2.38419e-07, 0, 13, 0, 2.38419e-07, 0, -13, 89.5591, -19, 37.5776)
 
 [node name="Chest2" parent="." instance=ExtResource("3_tm2ny")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -4.14715, 4.76837e-07, 0.353615)
+transform = Transform3D(-1, 0, 2.62269e-07, 0, 1, 0, -2.62269e-07, 0, -1, -4.14715, 4.76837e-07, 2.35362)
+visible = false
 password = [4, 0, 4]
+arabic = true
 
 [node name="Sensitivity" parent="Chest2" instance=ExtResource("2_52e0d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134143, 0)
@@ -150,6 +154,20 @@ transform = Transform3D(-0.967411, -0.0135264, 0.252849, -0.015426, 0.999866, -0
 
 [node name="MoveLeft" parent="." instance=ExtResource("2_52e0d")]
 transform = Transform3D(0.999866, -0.0163879, 0, 0.0163879, 0.999866, 0, 0, 0, 1, 2.74514, 1.09591, -0.677564)
+
+[node name="NumberClue2" parent="." instance=ExtResource("5_ampdl")]
+transform = Transform3D(-1, 0, -8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -3.82137e-15, 1, 4.37114e-08, -4.03283, 0.0077343, 3.51835)
+pixel_size = 0.005
+shaded = true
+modulate = Color(0, 0, 0, 1)
+outline_size = 0
+number = 404
+
+[node name="NumberClue3" parent="." instance=ExtResource("5_ampdl")]
+transform = Transform3D(1, -8.74228e-08, 8.74228e-08, 8.74228e-08, 1, 7.10543e-15, -8.74228e-08, 0, 1, 2.37047, 0.504885, -5.57742)
+pixel_size = 0.005
+shaded = true
+number = 905
 
 [node name="NumberClue" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16644, 0.870954, -5.49792)
@@ -185,16 +203,17 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_6sd3a")
 
-[node name="Fence" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1.48256)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Fence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("BoxMesh_iu62p")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("BoxShape3D_blajh")
+[node name="Fence" parent="." instance=ExtResource("7_h5nh2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38275, 0, -0.839214)
 
 [node name="Node3D" parent="." instance=ExtResource("4_yuqok")]
 transform = Transform3D(1.43277, 0, 1.39541, 0, 2, 0, -1.39541, 0, 1.43277, 0.124496, 1.12896, -5.60062)
+
+[node name="Worek" parent="." instance=ExtResource("11_633sr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.835913, 0.216177, 1.49288)
+
+[node name="Worek3" parent="." instance=ExtResource("11_633sr")]
+transform = Transform3D(0.298655, 0, 0.707554, 0, 0.8, 0, -0.566043, 0, 0.373319, 0.217903, 0.216177, 1.83757)
+
+[node name="Worek2" parent="." instance=ExtResource("11_633sr")]
+transform = Transform3D(0.391711, 0, 0.920088, 0, 1, 0, -0.920088, 0, 0.391711, -0.284261, 0.138449, 1.41838)
