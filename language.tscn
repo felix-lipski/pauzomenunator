@@ -3,7 +3,7 @@
 [ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="2_ytx05"]
 [ext_resource type="Script" path="res://language.gd" id="3_87p7l"]
 [ext_resource type="PackedScene" uid="uid://v4b8kn8b36q8" path="res://models/Pauza/Tekstury Przycisk/Button_Czerwone.glb" id="6_hgioe"]
-[ext_resource type="PackedScene" uid="uid://drpxgr50c6l31" path="res://models/Pauza/Panel_5/Panel_5.fbx" id="8_0kcde"]
+[ext_resource type="PackedScene" path="res://models/Pauza/Panel_5/Panel_5.fbx" id="8_0kcde"]
 [ext_resource type="PackedScene" uid="uid://bpf21inwaen33" path="res://models/Pauza/Panel_3/Panel_3.glb" id="9_i3bwl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w0y3"]

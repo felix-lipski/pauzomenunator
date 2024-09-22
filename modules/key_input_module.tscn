@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://reset_key.gd" id="3_u5pov"]
 [ext_resource type="EventAsset" uid="uid://ccnoln6ybukq7" path="res://addons/FMOD/editor/resources/events/{6395c575-a65c-4283-908a-add31b1fb409}.tres" id="4_56ua7"]
 [ext_resource type="Script" path="res://input_key.gd" id="5_ibvns"]
-[ext_resource type="PackedScene" uid="uid://drpxgr50c6l31" path="res://models/Pauza/Panel_5/Panel_5.fbx" id="6_fvld1"]
+[ext_resource type="PackedScene" path="res://models/Pauza/Panel_5/Panel_5.fbx" id="6_fvld1"]
 [ext_resource type="PackedScene" uid="uid://v4b8kn8b36q8" path="res://models/Pauza/Tekstury Przycisk/Button_Czerwone.glb" id="6_xuoiw"]
 [ext_resource type="PackedScene" uid="uid://bpf21inwaen33" path="res://models/Pauza/Panel_3/Panel_3.glb" id="8_b0bwq"]
 
