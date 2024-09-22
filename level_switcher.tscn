@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bwkrlue3fh3uf"]
 
 [ext_resource type="Script" path="res://level_switcher.gd" id="1_2t02e"]
-[ext_resource type="EventAsset" path="res://addons/FMOD/editor/resources/events/{d1b24baf-17f3-4225-a715-da42e8bef424}.tres" id="2_eq1eg"]
+[ext_resource type="EventAsset" uid="uid://b7woa73e8uj28" path="res://addons/FMOD/editor/resources/events/{d1b24baf-17f3-4225-a715-da42e8bef424}.tres" id="2_eq1eg"]
 [ext_resource type="PackedScene" uid="uid://bwvxph837x6em" path="res://level1.tscn" id="2_ts0do"]
 [ext_resource type="BankAsset" uid="uid://bsxmyoo4tyseu" path="res://addons/FMOD/editor/resources/banks/{2e3c3481-2a65-4b32-8ed1-9462b3dbbd0b}.tres" id="3_ljcjg"]
 [ext_resource type="BankAsset" uid="uid://de8hfphnvcctn" path="res://addons/FMOD/editor/resources/banks/{b6211455-5b1e-0770-0898-1e9c4228bb93}.tres" id="4_hn1tv"]
