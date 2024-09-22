@@ -1,12 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6qf4ccnbst7s"]
+[gd_scene load_steps=10 format=3 uid="uid://c6qf4ccnbst7s"]
 
 [ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="1_75e7q"]
+[ext_resource type="PackedScene" uid="uid://bpf21inwaen33" path="res://models/Pauza/Panel_3/Panel_3.glb" id="1_r1n5v"]
 [ext_resource type="Script" path="res://level_button.gd" id="2_bpdvc"]
+[ext_resource type="PackedScene" uid="uid://c3n1j5fw1fwmi" path="res://models/Pauza/Tekstury Przycisk/Button_Niebieski.glb" id="4_200sg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4sux"]
+albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
 
 [sub_resource type="TextMesh" id="TextMesh_6srfu"]
-text = "Level Select"
+material = SubResource("StandardMaterial3D_t4sux")
+text = "Level"
 horizontal_alignment = 0
-pixel_size = 0.003
+pixel_size = 0.0015
 depth = 0.01
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lakiq"]
@@ -20,25 +26,31 @@ material = SubResource("StandardMaterial3D_rt8jq")
 size = Vector3(0.03, 0.03, 0.03)
 
 [node name="Level" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+
+[node name="Panel_3" parent="." instance=ExtResource("1_r1n5v")]
 
 [node name="Chasis" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+visible = false
 mesh = ExtResource("1_75e7q")
 skeleton = NodePath("")
 
 [node name="Label" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1229, 0.0441698, 0)
 mesh = SubResource("TextMesh_6srfu")
 skeleton = NodePath("../../..")
 
 [node name="LevelButton" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19979, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0645966, 0.0373655, 0)
 script = ExtResource("2_bpdvc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelButton"]
 shape = SubResource("BoxShape3D_lakiq")
 
 [node name="Model" type="MeshInstance3D" parent="LevelButton"]
+visible = false
 mesh = SubResource("BoxMesh_vavrf")
 skeleton = NodePath("")
+
+[node name="Button_Niebieski" parent="LevelButton" instance=ExtResource("4_200sg")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.00355624, 0.0159286)

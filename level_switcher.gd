@@ -5,6 +5,7 @@ var level = 1
 
 var levels = [null, null, null]
 var postions = [null, Vector3(), Vector3()]
+var language = "traditional"
 
 func switch_level(new_level: int):
 	var player = $World/Player

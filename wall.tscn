@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwg0nqpnyewkp"]
+
+[ext_resource type="PackedScene" uid="uid://4hjhkcdrftsc" path="res://models/hgj2024/sciana zwykla/sciana_zwykla.glb" id="1_f108c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnifh"]
+size = Vector3(5.08221, 2.94998, 0.291443)
+
+[node name="Wall" type="StaticBody3D"]
+
+[node name="segment" parent="." instance=ExtResource("1_f108c")]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 2.51275, 0.0285274, 0)
+
+[node name="sciana_zwykla3" parent="." instance=ExtResource("1_f108c")]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 1.24629, 0.0285274, 2.38419e-07)
+
+[node name="sciana_zwykla4" parent="." instance=ExtResource("1_f108c")]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, -0.0216131, 0.0285274, 2.38419e-07)
+
+[node name="sciana_zwykla" parent="." instance=ExtResource("1_f108c")]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 3.77867, 0.0285274, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54054, 1.376, -0.0657654)
+shape = SubResource("BoxShape3D_tnifh")

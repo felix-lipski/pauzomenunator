@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1ia2m7q82r5p"]
+[gd_scene load_steps=12 format=3 uid="uid://b1ia2m7q82r5p"]
 
 [ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="1_ttlag"]
 [ext_resource type="Script" path="res://fov_slider.gd" id="2_kghdc"]
-[ext_resource type="PackedScene" uid="uid://c53rqq31kwjdf" path="res://models/Pauza/Tekstury Przycisk/Sufak.fbx" id="3_8jvhv"]
-[ext_resource type="PackedScene" uid="uid://bqvxnevna4iwq" path="res://models/Pauza/Panel_2/Panel_2.fbx" id="4_7tjoa"]
+[ext_resource type="PackedScene" uid="uid://bspdjl7v64ixs" path="res://models/Pauza/Tekstury Przycisk/Sufak.glb" id="3_8jvhv"]
+[ext_resource type="PackedScene" uid="uid://ddbnqtmv0en2m" path="res://models/Pauza/Panel_2/Panel_2.fbx" id="4_7tjoa"]
+[ext_resource type="PackedScene" uid="uid://ceedicxg3svv4" path="res://models/Pauza/Panel_2/Panel_2.glb" id="5_712fl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xaofj"]
 albedo_color = Color(0.396889, 0.396889, 0.396889, 1)
@@ -65,3 +66,6 @@ mesh = SubResource("BoxMesh_c5pmp")
 skeleton = NodePath("")
 
 [node name="Panel_2" parent="." instance=ExtResource("4_7tjoa")]
+visible = false
+
+[node name="Panel_3" parent="." instance=ExtResource("5_712fl")]

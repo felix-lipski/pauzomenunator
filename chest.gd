@@ -5,12 +5,18 @@ extends Node3D
 
 var locked = true
 
+@export var arabic = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Password/Key1.number = initial[0]
 	$Password/Key2.number = initial[1]
 	$Password/Key3.number = initial[2]
+	$Password/Key1.arabic = arabic
+	$Password/Key2.arabic = arabic
+	$Password/Key3.arabic = arabic
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://dqkcy7qm7gggb"]
+
+[ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="2_ytx05"]
+[ext_resource type="Script" path="res://language.gd" id="3_87p7l"]
+[ext_resource type="PackedScene" uid="uid://v4b8kn8b36q8" path="res://models/Pauza/Tekstury Przycisk/Button_Czerwone.glb" id="6_hgioe"]
+[ext_resource type="PackedScene" uid="uid://drpxgr50c6l31" path="res://models/Pauza/Panel_5/Panel_5.fbx" id="8_0kcde"]
+[ext_resource type="PackedScene" uid="uid://bpf21inwaen33" path="res://models/Pauza/Panel_3/Panel_3.glb" id="9_i3bwl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w0y3"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_53nur"]
+material = SubResource("StandardMaterial3D_6w0y3")
+text = "Numerals
+Style"
+line_spacing = -8.0
+pixel_size = 0.001
+depth = 0.01
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3d08w"]
+size = Vector3(0.185, 0.06, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nuxm7"]
+albedo_color = Color(1, 0.18, 0.18, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jpi4h"]
+material = SubResource("StandardMaterial3D_nuxm7")
+size = Vector3(0.06, 0.04, 0.03)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1uqh"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6qnse"]
+material = SubResource("StandardMaterial3D_n1uqh")
+size = Vector3(0.14, 0.04, 0.02)
+
+[node name="Language" type="Node3D"]
+
+[node name="Chasis" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+visible = false
+mesh = ExtResource("2_ytx05")
+skeleton = NodePath("")
+
+[node name="Label" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0912736, 0.0447637, 0)
+mesh = SubResource("TextMesh_53nur")
+skeleton = NodePath("../../..")
+
+[node name="KeyInputGroup" type="Area3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.102728, 0.0405107, 0)
+script = ExtResource("3_87p7l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyInputGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0254575, 0, 0)
+shape = SubResource("BoxShape3D_3d08w")
+
+[node name="Reset" type="Node3D" parent="KeyInputGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0, 0)
+
+[node name="Button_Czerwone" parent="KeyInputGroup/Reset" instance=ExtResource("6_hgioe")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.0138958)
+
+[node name="Model" type="MeshInstance3D" parent="KeyInputGroup/Reset"]
+visible = false
+mesh = SubResource("BoxMesh_jpi4h")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="KeyInputGroup/Reset/Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.016)
+pixel_size = 0.0006
+outline_modulate = Color(0, 0, 0, 0)
+text = "RESET"
+uppercase = true
+
+[node name="Key" type="Node3D" parent="KeyInputGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0530212, 0, 0)
+
+[node name="Model" type="MeshInstance3D" parent="KeyInputGroup/Key"]
+mesh = SubResource("BoxMesh_6qnse")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="KeyInputGroup/Key/Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.011)
+pixel_size = 0.0006
+modulate = Color(0, 1, 0, 1)
+text = "Traditional"
+uppercase = true
+
+[node name="Panel_5" parent="." instance=ExtResource("8_0kcde")]
+visible = false
+
+[node name="Panel_3" parent="." instance=ExtResource("9_i3bwl")]

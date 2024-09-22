@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bwvxph837x6em"]
+[gd_scene load_steps=50 format=3 uid="uid://bwvxph837x6em"]
 
 [ext_resource type="Script" path="res://level1.gd" id="1_4dvhk"]
 [ext_resource type="Script" path="res://addons/character-controller/example/main/player.gd" id="4_4l76r"]
@@ -18,8 +18,16 @@
 [ext_resource type="PackedScene" uid="uid://b1ia2m7q82r5p" path="res://modules/fov.tscn" id="17_lcos1"]
 [ext_resource type="PackedScene" uid="uid://c46v6gvwxgsp3" path="res://modules/sensitivity.tscn" id="18_ap3io"]
 [ext_resource type="PackedScene" uid="uid://lhtrts4w5uam" path="res://modules/shadows.tscn" id="19_wjcmb"]
+[ext_resource type="PackedScene" uid="uid://dqkcy7qm7gggb" path="res://language.tscn" id="20_xe13v"]
+[ext_resource type="PackedScene" uid="uid://4hjhkcdrftsc" path="res://models/hgj2024/sciana zwykla/sciana_zwykla.glb" id="21_24sf0"]
+[ext_resource type="PackedScene" uid="uid://dawk3o1pjoo1d" path="res://models/hgj2024/sciana dziura/sciana_dziura.glb" id="22_35x5a"]
+[ext_resource type="PackedScene" uid="uid://0ejjpsi56w62" path="res://models/hgj2024/workbench/WORKBENCH.glb" id="22_hoe6t"]
+[ext_resource type="PackedScene" uid="uid://bwg0nqpnyewkp" path="res://wall.tscn" id="23_muivj"]
 [ext_resource type="PackedScene" uid="uid://crc4crbu2a7d8" path="res://addons/character-controller/example/main/audios/player_audios.tscn" id="24_2lgak"]
 [ext_resource type="PackedScene" uid="uid://bk4kojpks7tgl" path="res://modules/key_input_module.tscn" id="27_d4r4f"]
+[ext_resource type="PackedScene" uid="uid://1pn07bf5wsh1" path="res://number_clue.tscn" id="28_g0sv4"]
+[ext_resource type="PackedScene" uid="uid://cxg4u4qcopgy7" path="res://models/Pauza/Mebel/Mebel.glb" id="28_ryayw"]
+[ext_resource type="PackedScene" uid="uid://x35p8kexc3ip" path="res://models/Pauza/Lampa/Lampa1.glb" id="29_b48ri"]
 [ext_resource type="PackedScene" uid="uid://ca7xo151vkhx8" path="res://chest.tscn" id="30_cyue7"]
 [ext_resource type="PackedScene" uid="uid://bdgbvgelsw5nb" path="res://pickable.tscn" id="30_sjjww"]
 
@@ -39,26 +47,22 @@ ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.0
 fog_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_f5ace"]
+size = Vector3(4.97437, 3.03699, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_31cdp"]
+size = Vector3(1.28033, 2.80226, 0.194824)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxj82"]
 albedo_color = Color(0.682353, 0.694118, 0.752941, 1)
 metallic_specular = 0.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_x2f0g"]
-material = SubResource("StandardMaterial3D_nxj82")
-size = Vector3(1, 4, 0.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_f5ace"]
-size = Vector3(6, 4, 0.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_h2fqe"]
-size = Vector3(1, 4, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_56y48"]
 material = SubResource("StandardMaterial3D_nxj82")
 size = Vector3(1, 2, 0.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8eg0b"]
-size = Vector3(7, 4, 0.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2fqe"]
+size = Vector3(2.34448, 1.0325, 0.194824)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q7pff"]
 size = Vector3(7, 0.5, 6)
@@ -68,10 +72,10 @@ albedo_color = Color(0.221467, 4.81308e-08, 0.117494, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_s4ift"]
 material = SubResource("StandardMaterial3D_pwpxd")
-size = Vector3(8, 0.5, 6)
+size = Vector3(7, 0.5, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3suxs"]
-size = Vector3(3, 0.5, 3)
+size = Vector3(5, 0.5, 4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5adm7"]
 material = SubResource("StandardMaterial3D_pwpxd")
@@ -88,7 +92,13 @@ size = Vector3(2, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_aom5b"]
 size = Vector3(2, 1, 1)
 
-[node name="World" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_xk15o"]
+size = Vector3(0.827026, 2.9541, 2.07043)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yrg3l"]
+size = Vector3(10, 0.5, 10)
+
+[node name="World2" type="Node3D"]
 script = ExtResource("1_4dvhk")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
@@ -103,6 +113,9 @@ script = ExtResource("4_4l76r")
 underwater_env = ExtResource("5_qo3ji")
 mouse_sensitivity = 0.0
 step_bob_enabled = false
+gravity_multiplier = 2.0
+speed = 6.0
+jump_height = 5.0
 abilities_path = Array[NodePath]([NodePath("Crouch Ability 3D"), NodePath("Sprint Ability 3D"), NodePath("Walk Ability 3D"), NodePath("Jump Ability 3D"), NodePath("Fly Ability 3D"), NodePath("Swim Ability 3D")])
 
 [node name="Collision" type="CollisionShape3D" parent="Player"]
@@ -112,7 +125,6 @@ shape = SubResource("CapsuleShape3D_jcbg5")
 target_position = Vector3(0, 1, 0)
 
 [node name="Walk Ability 3D" type="Node3D" parent="Player"]
-visible = false
 script = ExtResource("6_6on16")
 
 [node name="Sprint Ability 3D" type="Node3D" parent="Player"]
@@ -158,9 +170,11 @@ transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
 [node name="PauseMenu" type="Node3D" parent="Player/Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0618496, 0.2, -0.5)
 
 [node name="Scroll" parent="Player/Head/PauseMenu" instance=ExtResource("13_2r6yg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.264064, -0.2, 0)
+visible = false
 
 [node name="Modules" type="Node3D" parent="Player/Head/PauseMenu"]
 script = ExtResource("16_yhpx2")
@@ -180,6 +194,9 @@ visible = false
 [node name="MoveJump" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("27_d4r4f")]
 visible = false
 
+[node name="MoveCrouch" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("27_d4r4f")]
+visible = false
+
 [node name="Level" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("16_fytw8")]
 visible = false
 
@@ -192,6 +209,9 @@ visible = false
 [node name="Shadows" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("19_wjcmb")]
 visible = false
 
+[node name="Language" parent="Player/Head/PauseMenu/Modules" instance=ExtResource("20_xe13v")]
+visible = false
+
 [node name="Player Audios" parent="Player" instance=ExtResource("24_2lgak")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -201,48 +221,35 @@ environment = SubResource("Environment_jyfsy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="WallNorth" type="StaticBody3D" parent="Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.256, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.985075, -0.223191, -1)
 
-[node name="Segment3" type="MeshInstance3D" parent="Room/WallNorth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
+[node name="sciana_zwykla" parent="Room/WallNorth" instance=ExtResource("21_24sf0")]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 0, 0.256, 0)
 
-[node name="Segment8" type="MeshInstance3D" parent="Room/WallNorth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
+[node name="sciana_dziura" parent="Room/WallNorth/sciana_zwykla" instance=ExtResource("22_35x5a")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 0.0216675)
 
-[node name="Segment7" type="MeshInstance3D" parent="Room/WallNorth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
+[node name="sciana_zwykla" parent="Room/WallNorth/sciana_zwykla" instance=ExtResource("21_24sf0")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -4.76837e-07, 0, -8.4293)
 
-[node name="Segment4" type="MeshInstance3D" parent="Room/WallNorth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
+[node name="sciana_zwykla2" parent="Room/WallNorth/sciana_zwykla" instance=ExtResource("21_24sf0")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 4.21972)
 
-[node name="Segment5" type="MeshInstance3D" parent="Room/WallNorth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
+[node name="sciana_zwykla3" parent="Room/WallNorth/sciana_zwykla" instance=ExtResource("21_24sf0")]
+transform = Transform3D(1, 0, 3.19744e-14, 0, 1, 0, -3.19744e-14, 0, 1, 4.76837e-07, 0, 8.44126)
 
-[node name="Segment6" type="MeshInstance3D" parent="Room/WallNorth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
+[node name="sciana_zwykla4" parent="Room/WallNorth/sciana_zwykla" instance=ExtResource("21_24sf0")]
+transform = Transform3D(1, 0, 4.61853e-14, 0, 1, 0, -4.61853e-14, 0, 1, 4.76837e-07, 0, 12.6676)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/WallNorth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01282, 1.51849, 0)
 shape = SubResource("BoxShape3D_f5ace")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Room/WallNorth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 3.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/WallNorth/StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
-shape = SubResource("BoxShape3D_h2fqe")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21922, 1.5842, -0.152588)
+shape = SubResource("BoxShape3D_31cdp")
 
 [node name="Window2" type="Node3D" parent="Room/WallNorth"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
@@ -252,156 +259,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
 
 [node name="Segment2" type="MeshInstance3D" parent="Room/WallNorth/Window2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
 mesh = SubResource("BoxMesh_56y48")
 skeleton = NodePath("../../../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/WallNorth/Window2/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.467896, -0.964554, 0)
 shape = SubResource("BoxShape3D_h2fqe")
 
-[node name="WallSouth" type="StaticBody3D" parent="Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.255919, 5)
+[node name="Wall" parent="Room" instance=ExtResource("23_muivj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.67248, 0, -4.613)
 
-[node name="Segment1" type="MeshInstance3D" parent="Room/WallSouth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
-visible = false
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
+[node name="Wall5" parent="Room" instance=ExtResource("23_muivj")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.92709, 0, -4.02975)
 
-[node name="Segment2" type="MeshInstance3D" parent="Room/WallSouth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0)
-visible = false
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
+[node name="Wall2" parent="Room" instance=ExtResource("23_muivj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.67248, 0, 0.451767)
 
-[node name="Segment3" type="MeshInstance3D" parent="Room/WallSouth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 0)
-visible = false
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
+[node name="Wall6" parent="Room" instance=ExtResource("23_muivj")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 4, 0, 4)
 
-[node name="Segment4" type="MeshInstance3D" parent="Room/WallSouth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 0)
-visible = false
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
+[node name="Wall7" parent="Room" instance=ExtResource("23_muivj")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 2, 0, 4)
 
-[node name="Segment5" type="MeshInstance3D" parent="Room/WallSouth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
-visible = false
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
+[node name="Wall3" parent="Room" instance=ExtResource("23_muivj")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1.61147, 0, -1.03757)
 
-[node name="Segment6" type="MeshInstance3D" parent="Room/WallSouth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 0)
-visible = false
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/WallSouth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0)
-shape = SubResource("BoxShape3D_8eg0b")
-
-[node name="Window" type="Node3D" parent="Room/WallSouth"]
-visible = false
-
-[node name="Segment" type="MeshInstance3D" parent="Room/WallSouth/Window"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_56y48")
-skeleton = NodePath("../../../..")
-
-[node name="Segment2" type="MeshInstance3D" parent="Room/WallSouth/Window"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
-mesh = SubResource("BoxMesh_56y48")
-skeleton = NodePath("../../../..")
-
-[node name="Window2" type="Node3D" parent="Room/WallSouth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-visible = false
-
-[node name="Segment" type="MeshInstance3D" parent="Room/WallSouth/Window2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_56y48")
-skeleton = NodePath("../../../..")
-
-[node name="Segment2" type="MeshInstance3D" parent="Room/WallSouth/Window2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
-mesh = SubResource("BoxMesh_56y48")
-skeleton = NodePath("../../../..")
-
-[node name="WallWest" type="StaticBody3D" parent="Room"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, -0.255919, 0.5)
-
-[node name="Segment1" type="MeshInstance3D" parent="Room/WallWest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
-
-[node name="Segment2" type="MeshInstance3D" parent="Room/WallWest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
-
-[node name="Segment3" type="MeshInstance3D" parent="Room/WallWest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
-
-[node name="Segment4" type="MeshInstance3D" parent="Room/WallWest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
-
-[node name="Segment5" type="MeshInstance3D" parent="Room/WallWest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
-
-[node name="Segment6" type="MeshInstance3D" parent="Room/WallWest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/WallWest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 0)
-shape = SubResource("BoxShape3D_f5ace")
-
-[node name="WallEast" type="StaticBody3D" parent="Room"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, -0.255919, 0.5)
-
-[node name="Segment1" type="MeshInstance3D" parent="Room/WallEast"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
-
-[node name="Segment2" type="MeshInstance3D" parent="Room/WallEast"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
-
-[node name="Segment3" type="MeshInstance3D" parent="Room/WallEast"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
-
-[node name="Segment4" type="MeshInstance3D" parent="Room/WallEast"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
-
-[node name="Segment5" type="MeshInstance3D" parent="Room/WallEast"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
-
-[node name="Segment6" type="MeshInstance3D" parent="Room/WallEast"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
-mesh = SubResource("BoxMesh_x2f0g")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/WallEast"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 0)
-shape = SubResource("BoxShape3D_f5ace")
+[node name="Wall4" parent="Room" instance=ExtResource("23_muivj")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -2.58239, 0, 4.0452)
 
 [node name="Floor" type="StaticBody3D" parent="Room"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
@@ -411,7 +296,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.25, 0)
 shape = SubResource("BoxShape3D_q7pff")
 
 [node name="Model" type="MeshInstance3D" parent="Room/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.25, 0)
 mesh = SubResource("BoxMesh_s4ift")
 skeleton = NodePath("../../..")
 
@@ -419,53 +304,116 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Floor2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.25, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.25, -1)
 shape = SubResource("BoxShape3D_3suxs")
 
 [node name="Model" type="MeshInstance3D" parent="Room/Floor2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.25, 0)
 mesh = SubResource("BoxMesh_5adm7")
 skeleton = NodePath("../../..")
 
-[node name="Lamp" type="OmniLight3D" parent="Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 2)
-shadow_enabled = true
-omni_range = 10.0
-
-[node name="Lamp2" type="OmniLight3D" parent="Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 4)
-shadow_enabled = true
-omni_range = 10.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Room"]
+[node name="Desk" type="StaticBody3D" parent="Room"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.2499)
 
-[node name="Desk" type="MeshInstance3D" parent="Room/StaticBody3D"]
+[node name="Desk" type="MeshInstance3D" parent="Room/Desk"]
+visible = false
 mesh = SubResource("BoxMesh_vselk")
 skeleton = NodePath("")
 
-[node name="FOV" parent="Room/StaticBody3D/Desk" instance=ExtResource("30_sjjww")]
-transform = Transform3D(0.72246, 0, 0.691412, 0, 1, 0, -0.691412, 0, 0.72246, -0.6019, 0.514444, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Desk"]
 shape = SubResource("BoxShape3D_aom5b")
 
+[node name="FOV" parent="Room/Desk/CollisionShape3D" instance=ExtResource("30_sjjww")]
+transform = Transform3D(0.72246, 0, 0.691412, 0, 1, 0, -0.691412, 0, 0.72246, -0.6019, 0.514444, 0)
+
+[node name="WORKBENCH" parent="Room/Desk" instance=ExtResource("22_hoe6t")]
+transform = Transform3D(-5.24537e-09, 0, -0.12, 0, 0.12, 0, 0.12, 0, -5.24537e-09, -0.655679, -0.5, 0.331767)
+
 [node name="Level" parent="Room" instance=ExtResource("30_sjjww")]
-transform = Transform3D(-0.635916, 0, 0.771757, 0, 1, 0, -0.771757, 0, -0.635916, 3.07296, -0.00314009, 0.277019)
+transform = Transform3D(-0.635916, 0, 0.771757, 0, 1, 0, -0.771757, 0, -0.635916, 3.35542, -0.00314009, 0.277019)
 
 [node name="MoveRight" parent="Room" instance=ExtResource("30_sjjww")]
 transform = Transform3D(-0.941305, 0, -0.337555, 0, 1, 0, 0.337555, 0, -0.941305, 0.901224, -0.00314009, 0.465465)
 
+[node name="Language" parent="Room" instance=ExtResource("30_sjjww")]
+transform = Transform3D(0.403979, 0.606072, -0.685184, -0.862195, 0.502537, -0.06383, 0.305645, 0.61655, 0.725567, -2.36808, 0.259517, 0.189171)
+
+[node name="MoveJump" parent="Room" instance=ExtResource("30_sjjww")]
+transform = Transform3D(-2.29691e-08, -3.71901e-08, -0.999999, -0.85081, 0.525472, 0, 0.525471, 0.850811, -4.37113e-08, 2.87257, 0.248324, -3.70305)
+
 [node name="Chest2" parent="Room" instance=ExtResource("30_cyue7")]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -2, 0, 3)
+transform = Transform3D(-0.21862, 0, 0.97581, 0, 1, 0, -0.97581, 0, -0.21862, -1.85482, -9.53674e-07, 3.26699)
 password = [2, 7, 3]
 
 [node name="MoveForward" parent="Room/Chest2" instance=ExtResource("30_sjjww")]
 transform = Transform3D(-0.996335, 0, 0.0855211, 0, 1, 0, -0.0855211, 0, -0.996335, 0.0204918, 0.23049, -0.0928496)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91876, 0, -3.00393)
+
+[node name="Mebel" parent="Room/StaticBody3D" instance=ExtResource("28_ryayw")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 0)
+
+[node name="Mebel2" parent="Room/StaticBody3D" instance=ExtResource("28_ryayw")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0864868, 0.977051, 0.535217)
+shape = SubResource("BoxShape3D_xk15o")
+
 [node name="Chest" parent="Room" instance=ExtResource("30_cyue7")]
-transform = Transform3D(0.991088, 0, 0.133208, 0, 1, 0, -0.133208, 0, 0.991088, -1.7978, 0, -0.24228)
+transform = Transform3D(0.991088, 0, 0.133208, 0, 1, 0, -0.133208, 0, 0.991088, -1.71793, 0, -0.24228)
 password = [2, 7, 3]
 
-[node name="MoveJump" parent="Room/Chest" instance=ExtResource("30_sjjww")]
+[node name="MoveForward" parent="Room/Chest" instance=ExtResource("30_sjjww")]
 transform = Transform3D(-0.996335, 0, 0.0855211, 0, 1, 0, -0.0855211, 0, -0.996335, 0.0204918, 0.23049, -0.0928496)
+
+[node name="Chest3" parent="Room" instance=ExtResource("30_cyue7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89951, 0, -3.23413)
+password = [1, 2, 7]
+arabic = true
+
+[node name="MoveBackward" parent="Room/Chest3" instance=ExtResource("30_sjjww")]
+transform = Transform3D(-0.999408, 0, 0.0343761, 0, 1, 0, -0.0343761, 0, -0.999408, 0.0204918, 0.23049, 0.101668)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 0.730007, 0.683439, 0, -0.683439, 0.730007, 1.8234, 0.81662, -2.11776)
+visible = false
+
+[node name="Ceiling" type="StaticBody3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Ceiling"]
+shape = SubResource("BoxShape3D_yrg3l")
+
+[node name="Lamp" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -1)
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="Lampa1" parent="." instance=ExtResource("29_b48ri")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 3, 2, -1)
+
+[node name="Lampa2" parent="." instance=ExtResource("29_b48ri")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1, 2, 0)
+
+[node name="Lampa3" parent="." instance=ExtResource("29_b48ri")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 2, 2)
+
+[node name="Lamp2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="Lamp3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0)
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="NumberClue" parent="." instance=ExtResource("28_g0sv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97583, 1.44714, -4.84404)
+pixel_size = 0.007
+shaded = true
+modulate = Color(0.0352941, 0.0392157, 0.0509804, 1)
+outline_size = 0
+number = 127

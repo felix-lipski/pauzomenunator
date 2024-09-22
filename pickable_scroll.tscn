@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c30jy76g4wtb4"]
+
+[ext_resource type="PackedScene" uid="uid://dklcnarh1xtm2" path="res://models/Pauza/Panel_Boczny/Panel_Boczny.glb" id="1_7ayw4"]
+[ext_resource type="Script" path="res://pickable_scroll.gd" id="1_pjqgf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_emxt6"]
+size = Vector3(0.131445, 0.102884, 0.246045)
+
+[node name="PickableScroll" type="Area3D"]
+script = ExtResource("1_pjqgf")
+
+[node name="Panel_Boczny" parent="." instance=ExtResource("1_7ayw4")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0924665)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000683589, 0.0323776, -0.00148925)
+shape = SubResource("BoxShape3D_emxt6")
