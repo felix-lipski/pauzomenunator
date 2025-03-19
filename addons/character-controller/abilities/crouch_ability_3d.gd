@@ -1,6 +1,6 @@
 extends MovementAbility3D
 class_name CrouchAbility3D
-
+@export var sfx_crouch: EventAsset
 ## Crouch Ability, change size collider and velocity of [CharacterController3D].
 
 ## Speed multiplier when crouch is actived
@@ -33,6 +33,8 @@ func apply(velocity: Vector3, speed : float, is_on_floor : bool, direction : Vec
 		collision.shape.height -= delta * 8
 	elif not head_check.is_colliding():
 		collision.shape.height += delta * 8
+	if Input.is_action_just_pressed("move_crouch"):
+		FMODRuntime.play_one_shot(sfx_crouch, self)
 	collision.shape.height = clamp(collision.shape.height , height_in_crouch, default_height)
 	crouch_factor = (default_height - height_in_crouch) - (collision.shape.height - height_in_crouch)/ (default_height - height_in_crouch)
 	return velocity

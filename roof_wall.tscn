@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://cuar66frhqa7x"]
+
+[ext_resource type="PackedScene" uid="uid://bxqh7h7rvct1k" path="res://models/hgj2024/murek/murek.glb" id="1_7pidp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucin3"]
+albedo_color = Color(0.596078, 0.592157, 0.584314, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gxwof"]
+material = SubResource("StandardMaterial3D_ucin3")
+size = Vector3(11, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gyixl"]
+size = Vector3(11, 1.25133, 0.95)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mkghk"]
+size = Vector3(11, 3.26823, 0.589056)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_narmk"]
+size = Vector3(11, 0.869029, 0.658556)
+
+[node name="Wall" type="StaticBody3D"]
+
+[node name="murek" parent="." instance=ExtResource("1_7pidp")]
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 0, 0, 0)
+
+[node name="murek3" parent="." instance=ExtResource("1_7pidp")]
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, -2, 0, 0)
+
+[node name="murek4" parent="." instance=ExtResource("1_7pidp")]
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, -4, 0, 0)
+
+[node name="murek2" parent="." instance=ExtResource("1_7pidp")]
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 2, 0, 0)
+
+[node name="murek5" parent="." instance=ExtResource("1_7pidp")]
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 4, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_gxwof")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.374275, 0)
+shape = SubResource("BoxShape3D_gyixl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.634178, -0.180472)
+shape = SubResource("BoxShape3D_mkghk")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 0.914127, 0.405429, 0, -0.405429, 0.914127, 0, 0.50586, -0.00715669)
+shape = SubResource("BoxShape3D_narmk")

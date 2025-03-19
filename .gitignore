@@ -1,3 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+/models/**/*.png
+/models/**/*.png.import
+/models/**/*.fbx
+/models/**/*.fbx.import

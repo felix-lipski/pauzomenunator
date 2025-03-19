@@ -4,6 +4,9 @@ var toggled = true
 
 func on_press(toggled):
 	get_node("/root/LevelSwitcher/World/Sun").shadow_enabled = toggled
+	for child in get_node("/root/LevelSwitcher/World").get_children():
+		if child is OmniLight3D:
+			child.shadow_enabled = toggled
 
 func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if (event.is_pressed()):

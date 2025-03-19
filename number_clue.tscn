@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://1pn07bf5wsh1"]
+
+[ext_resource type="Script" path="res://number_clue.gd" id="1_ug487"]
+
+[node name="NumberClue" type="Label3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.120051, 1.44714, -1.58092)
+pixel_size = 0.0013
+text = "273
+"
+script = ExtResource("1_ug487")
+number = 273

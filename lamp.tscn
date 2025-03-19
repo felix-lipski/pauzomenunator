@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://ex8cj3d42x5a"]
+
+[ext_resource type="PackedScene" uid="uid://x35p8kexc3ip" path="res://models/Pauza/Lampa/Lampa1.glb" id="1_cljls"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyv83"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_13kp8"]
+material = SubResource("StandardMaterial3D_jyv83")
+radius = 0.015
+height = 0.03
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0pbo"]
+albedo_color = Color(0.122252, 0.122252, 0.122252, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h3hyy"]
+material = SubResource("StandardMaterial3D_w0pbo")
+top_radius = 0.005
+bottom_radius = 0.004
+height = 0.6
+
+[node name="Lamp" type="OmniLight3D"]
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="Lampa" parent="." instance=ExtResource("1_cljls")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0214636, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0531127, 0)
+mesh = SubResource("SphereMesh_13kp8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.719669, -5.94109e-05)
+mesh = SubResource("CylinderMesh_h3hyy")

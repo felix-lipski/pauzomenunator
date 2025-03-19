@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://c46v6gvwxgsp3"]
 
 [ext_resource type="BoxMesh" uid="uid://qmlyldwye6wf" path="res://module_base.tres" id="1_ggmjt"]
-[ext_resource type="PackedScene" uid="uid://bqvxnevna4iwq" path="res://models/Pauza/Panel_2/Panel_2.fbx" id="2_0883s"]
+[ext_resource type="PackedScene" uid="uid://ceedicxg3svv4" path="res://models/Pauza/Panel_2/Panel_2.glb" id="2_ldohv"]
 [ext_resource type="Script" path="res://slider_sensitivity.gd" id="3_nent1"]
-[ext_resource type="PackedScene" uid="uid://c53rqq31kwjdf" path="res://models/Pauza/Tekstury Przycisk/Sufak.fbx" id="4_6pftt"]
+[ext_resource type="PackedScene" uid="uid://bspdjl7v64ixs" path="res://models/Pauza/Tekstury Przycisk/Sufak.glb" id="4_6pftt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xaofj"]
 albedo_color = Color(0.396889, 0.396889, 0.396889, 1)
@@ -30,7 +30,6 @@ material = SubResource("StandardMaterial3D_qcyxp")
 size = Vector3(0.01, 0.03, 0.04)
 
 [node name="Sensitivity" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 
 [node name="Chasis" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
@@ -39,11 +38,11 @@ mesh = ExtResource("1_ggmjt")
 skeleton = NodePath("")
 
 [node name="Label" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.136, 0.046, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134173, 0.0442829, 0)
 mesh = SubResource("TextMesh_yhx8s")
 skeleton = NodePath("../../..")
 
-[node name="Panel_2" parent="." instance=ExtResource("2_0883s")]
+[node name="Panel_3" parent="." instance=ExtResource("2_ldohv")]
 
 [node name="Slider" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00425155, 0.0472608, 0.00906628)

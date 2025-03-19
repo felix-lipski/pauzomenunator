@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://codwrjh7x17iy"]
+
+[resource]
+is_3d = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Ambience/Ambience - Level 2"
+guid = "{8635a516-9f84-4641-a613-40391282e316}"
+name = "Ambience - Level 2"

@@ -25,12 +25,17 @@ class_name Player
 @export var underwater_env: Environment
 
 
+@export var steps_lvl_1: EventAsset
+@export var steps_lvl_2: EventAsset
+
+
+
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	setup()
 	#emerged.connect(_on_controller_emerged.bind())
 	#submerged.connect(_on_controller_subemerged.bind())
-
 
 func _physics_process(delta):
 	var is_valid_input := Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
@@ -55,6 +60,10 @@ func _input(event: InputEvent) -> void:
 	# Mouse look (only if the mouse is captured).
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_head(event.relative)
+
+	
+	
+
 
 
 #func _on_controller_emerged():

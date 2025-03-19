@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://vke6bu2d4hpc"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/SFX/sfx_jump/sfx_jump"
+guid = "{f05dd87f-e182-42f8-be16-ee3cd0086e30}"
+name = "sfx_jump"

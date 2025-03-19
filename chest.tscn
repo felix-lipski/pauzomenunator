@@ -1,8 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://ca7xo151vkhx8"]
 
 [ext_resource type="Script" path="res://chest.gd" id="1_nyvm3"]
-[ext_resource type="PackedScene" uid="uid://d3sxfjl4xt6jg" path="res://models/Pauza/Chest/Chest.fbx" id="1_t4agt"]
-[ext_resource type="PackedScene" uid="uid://b5lw4ixeu4djw" path="res://models/Pauza/Chest/Top.fbx" id="2_3vfi2"]
+[ext_resource type="PackedScene" uid="uid://cy17t1efnw330" path="res://models/Pauza/Chest/Chest.glb" id="1_t4agt"]
+[ext_resource type="PackedScene" uid="uid://dmm0t7xg3q5b0" path="res://models/Pauza/Chest/Top.glb" id="2_3vfi2"]
+[ext_resource type="EventAsset" uid="uid://dsbxsjaf0o47v" path="res://addons/FMOD/editor/resources/events/{47291653-3b3c-44a7-b12e-eda45c033768}.tres" id="2_pfhgl"]
 [ext_resource type="Script" path="res://password_number.gd" id="3_sp1rp"]
 [ext_resource type="EventAsset" uid="uid://clf7x778j2mmn" path="res://addons/FMOD/editor/resources/events/{e509db4e-0462-4c91-88c1-c922e5ac8702}.tres" id="5_t0jjs"]
 
@@ -25,10 +26,10 @@ size = Vector2(0.1, 1.15)
 size = Vector3(1, 0.0793457, 0.720337)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rrdbv"]
-size = Vector3(0.102539, 0.518311, 0.695312)
+size = Vector3(0.0605468, 0.518311, 0.695312)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iv02a"]
-size = Vector3(0.947083, 0.518311, 0.110107)
+size = Vector3(0.947083, 0.518311, 0.059448)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y30hy"]
 size = Vector3(0.078772, 0.0990857, 0.03)
@@ -43,6 +44,7 @@ size = Vector3(0.08, 0.1, 0.02)
 [node name="Chest" type="Node3D"]
 script = ExtResource("1_nyvm3")
 password = [2, 1, 3]
+chest_unlocked = ExtResource("2_pfhgl")
 
 [node name="Lid" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.517522, -0.333802)
@@ -75,25 +77,25 @@ shape = SubResource("BoxShape3D_xhaxs")
 [node name="StaticBody3D" type="StaticBody3D" parent="Body"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.468744, 0.240845, 0.015625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48974, 0.240845, 0.015625)
 shape = SubResource("BoxShape3D_rrdbv")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="Body"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body/StaticBody3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0134948, 0.240845, 0.321411)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0134948, 0.240845, 0.34674)
 shape = SubResource("BoxShape3D_iv02a")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="Body"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body/StaticBody3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0134948, 0.240845, -0.30832)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0134948, 0.240845, -0.333551)
 shape = SubResource("BoxShape3D_iv02a")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Body"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body/StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44873, 0.240845, 0.015625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.483957, 0.240845, 0.015625)
 shape = SubResource("BoxShape3D_rrdbv")
 
 [node name="Chest" parent="Body" instance=ExtResource("1_t4agt")]
